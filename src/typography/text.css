@@ -1,0 +1,40 @@
+/* SETEC — Typography utilities */
+
+/* Font family */
+.font-jetbrains { font-family: var(--setec-font-jetbrains); }
+.font-hack      { font-family: var(--setec-font-hack); }
+.font-iosevka   { font-family: var(--setec-font-iosevka); }
+
+/* Weight */
+.font-normal { font-weight: 400; }
+.font-bold   { font-weight: 700; }
+
+/* Headers — same size as body, distinguished by bold + color */
+.heading {
+  font-weight: 700;
+  color: var(--setec-color-text);
+  line-height: 1.3;
+}
+
+.heading-primary   { font-weight: 700; color: var(--setec-color-primary); line-height: 1.3; }
+.heading-secondary { font-weight: 700; color: var(--setec-color-secondary); line-height: 1.3; }
+.heading-accent    { font-weight: 700; color: var(--setec-color-accent); line-height: 1.3; }
+.heading-muted     { font-weight: 700; color: var(--setec-color-muted); line-height: 1.3; }
+
+/* Paragraph */
+.paragraph {
+  color: var(--setec-color-text);
+  line-height: 1.6;
+}
+
+/* Comment — mimics // code comment style */
+.comment {
+  color: var(--setec-color-comment);
+  line-height: 1.4;
+}
+
+/* Muted / secondary text */
+.text-muted { color: var(--setec-color-muted); }
+
+/* Inline code / terminal value */
+.text-mono { font-family: var(--setec-font-default); }

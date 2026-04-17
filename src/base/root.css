@@ -1,0 +1,120 @@
+/* ============================================================
+   SETEC — Root tokens
+   --setec-contrast: 1–100 (default 80)
+     100 = full cyberpunk neon (P3 wide-gamut)
+      40 = muted earth tones
+   ============================================================ */
+
+:root {
+  /* ── Master contrast knob ── */
+  --setec-contrast: 80;
+  --setec-c: calc(var(--setec-contrast) / 100);
+
+  /* ── Hue angles ── */
+  --setec-green-h:   142;
+  --setec-cyan-h:    196;
+  --setec-amber-h:    72;
+  --setec-purple-h:  295;
+  --setec-red-h:      25;
+  --setec-neutral-h: 240;
+
+  /* ── Green shades ── */
+  --setec-green-100: oklch(calc(0.88 + 0.06 * var(--setec-c)) calc(0.08 * var(--setec-c)) var(--setec-green-h));
+  --setec-green-300: oklch(calc(0.74 + 0.08 * var(--setec-c)) calc(0.22 * var(--setec-c)) var(--setec-green-h));
+  --setec-green-500: oklch(calc(0.55 + 0.15 * var(--setec-c)) calc(0.35 * var(--setec-c)) var(--setec-green-h));
+  --setec-green-700: oklch(calc(0.38 + 0.10 * var(--setec-c)) calc(0.24 * var(--setec-c)) var(--setec-green-h));
+  --setec-green-900: oklch(calc(0.22 + 0.06 * var(--setec-c)) calc(0.12 * var(--setec-c)) var(--setec-green-h));
+
+  /* ── Cyan shades ── */
+  --setec-cyan-100: oklch(calc(0.90 + 0.05 * var(--setec-c)) calc(0.06 * var(--setec-c)) var(--setec-cyan-h));
+  --setec-cyan-300: oklch(calc(0.76 + 0.07 * var(--setec-c)) calc(0.16 * var(--setec-c)) var(--setec-cyan-h));
+  --setec-cyan-500: oklch(calc(0.58 + 0.14 * var(--setec-c)) calc(0.22 * var(--setec-c)) var(--setec-cyan-h));
+  --setec-cyan-700: oklch(calc(0.40 + 0.10 * var(--setec-c)) calc(0.15 * var(--setec-c)) var(--setec-cyan-h));
+  --setec-cyan-900: oklch(calc(0.22 + 0.06 * var(--setec-c)) calc(0.08 * var(--setec-c)) var(--setec-cyan-h));
+
+  /* ── Amber shades ── */
+  --setec-amber-100: oklch(calc(0.92 + 0.04 * var(--setec-c)) calc(0.06 * var(--setec-c)) var(--setec-amber-h));
+  --setec-amber-300: oklch(calc(0.80 + 0.06 * var(--setec-c)) calc(0.14 * var(--setec-c)) var(--setec-amber-h));
+  --setec-amber-500: oklch(calc(0.68 + 0.10 * var(--setec-c)) calc(0.18 * var(--setec-c)) var(--setec-amber-h));
+  --setec-amber-700: oklch(calc(0.48 + 0.10 * var(--setec-c)) calc(0.14 * var(--setec-c)) var(--setec-amber-h));
+  --setec-amber-900: oklch(calc(0.26 + 0.06 * var(--setec-c)) calc(0.08 * var(--setec-c)) var(--setec-amber-h));
+
+  /* ── Purple shades ── */
+  --setec-purple-100: oklch(calc(0.88 + 0.06 * var(--setec-c)) calc(0.06 * var(--setec-c)) var(--setec-purple-h));
+  --setec-purple-300: oklch(calc(0.72 + 0.08 * var(--setec-c)) calc(0.16 * var(--setec-c)) var(--setec-purple-h));
+  --setec-purple-500: oklch(calc(0.55 + 0.12 * var(--setec-c)) calc(0.28 * var(--setec-c)) var(--setec-purple-h));
+  --setec-purple-700: oklch(calc(0.38 + 0.10 * var(--setec-c)) calc(0.20 * var(--setec-c)) var(--setec-purple-h));
+  --setec-purple-900: oklch(calc(0.22 + 0.06 * var(--setec-c)) calc(0.10 * var(--setec-c)) var(--setec-purple-h));
+
+  /* ── Red shades ── */
+  --setec-red-100: oklch(calc(0.88 + 0.06 * var(--setec-c)) calc(0.06 * var(--setec-c)) var(--setec-red-h));
+  --setec-red-300: oklch(calc(0.72 + 0.08 * var(--setec-c)) calc(0.18 * var(--setec-c)) var(--setec-red-h));
+  --setec-red-500: oklch(calc(0.55 + 0.12 * var(--setec-c)) calc(0.28 * var(--setec-c)) var(--setec-red-h));
+  --setec-red-700: oklch(calc(0.38 + 0.10 * var(--setec-c)) calc(0.20 * var(--setec-c)) var(--setec-red-h));
+  --setec-red-900: oklch(calc(0.22 + 0.06 * var(--setec-c)) calc(0.10 * var(--setec-c)) var(--setec-red-h));
+
+  /* ── Neutral shades (near-zero chroma) ── */
+  --setec-neutral-100: oklch(0.88 0.008 var(--setec-neutral-h));
+  --setec-neutral-300: oklch(0.68 0.008 var(--setec-neutral-h));
+  --setec-neutral-500: oklch(0.48 0.006 var(--setec-neutral-h));
+  --setec-neutral-700: oklch(0.30 0.005 var(--setec-neutral-h));
+  --setec-neutral-900: oklch(0.16 0.004 var(--setec-neutral-h));
+
+  /* ── Semantic color aliases ── */
+  --setec-color-primary:   var(--setec-green-500);
+  --setec-color-secondary: var(--setec-cyan-500);
+  --setec-color-accent:    var(--setec-amber-500);
+  --setec-color-error:     var(--setec-red-500);
+  --setec-color-warning:   var(--setec-amber-300);
+  --setec-color-success:   var(--setec-green-300);
+  --setec-color-muted:     var(--setec-neutral-500);
+  --setec-color-comment:   var(--setec-neutral-500);
+  --setec-color-text:      var(--setec-neutral-100);
+
+  /* ── Surfaces ── */
+  --setec-bg:             oklch(0.11 0.010 var(--setec-neutral-h));
+  --setec-bg-raised:      oklch(0.15 0.010 var(--setec-neutral-h));
+  --setec-bg-input:       oklch(0.18 0.010 var(--setec-neutral-h));
+  --setec-bg-hover:       oklch(0.20 0.012 var(--setec-neutral-h));
+  --setec-border:         oklch(0.28 0.010 var(--setec-neutral-h));
+  --setec-border-subtle:  oklch(0.22 0.008 var(--setec-neutral-h));
+
+  /* ── Focus ring ── */
+  --setec-focus-ring: var(--setec-cyan-500);
+
+  /* ── Typography ── */
+  --setec-font-jetbrains: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+  --setec-font-hack:      "Hack Nerd Font", "Hack", monospace;
+  --setec-font-iosevka:   "Iosevka Nerd Font", "Iosevka", monospace;
+  --setec-font-default:   var(--setec-font-jetbrains);
+
+  /* ── Spacing scale (4px base) ── */
+  --setec-space-1:  4px;
+  --setec-space-2:  8px;
+  --setec-space-3:  12px;
+  --setec-space-4:  16px;
+  --setec-space-6:  24px;
+  --setec-space-8:  32px;
+  --setec-space-12: 48px;
+  --setec-space-16: 64px;
+
+  /* ── Checkered pattern (for empty/inactive states) ── */
+  --setec-checkered: repeating-linear-gradient(
+    45deg,
+    oklch(0.22 0.008 var(--setec-neutral-h)) 0px,
+    oklch(0.22 0.008 var(--setec-neutral-h)) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+}
+
+/* Light theme stub — override surfaces only, colors TBD */
+.light {
+  --setec-bg:            oklch(0.97 0.005 var(--setec-neutral-h));
+  --setec-bg-raised:     oklch(0.92 0.005 var(--setec-neutral-h));
+  --setec-bg-input:      oklch(0.88 0.005 var(--setec-neutral-h));
+  --setec-bg-hover:      oklch(0.85 0.006 var(--setec-neutral-h));
+  --setec-border:        oklch(0.70 0.008 var(--setec-neutral-h));
+  --setec-border-subtle: oklch(0.80 0.006 var(--setec-neutral-h));
+  --setec-color-text:    oklch(0.18 0.010 var(--setec-neutral-h));
+}

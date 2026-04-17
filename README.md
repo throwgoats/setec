@@ -1,0 +1,1 @@
+This is a new project named SETEC, which will be a class-based style library loosely based on the terminal-style screens of the 1980s, but updated with modern, bright colors that look great against a dark background. The images in `/docs/insp` are for reference as to how the asthetic and overall design should be.

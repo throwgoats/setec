@@ -1,0 +1,148 @@
+/* SETEC — Form elements */
+
+/* Field wrapper */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--setec-space-2);
+}
+
+/* Field section — icon + heading grouping (from insp form screen) */
+.field-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--setec-space-3);
+  padding: var(--setec-space-4) 0;
+  border-bottom-width: 1px;
+  border-color: var(--setec-border-subtle);
+}
+
+.field-section-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  font-weight: 700;
+  color: var(--setec-color-text);
+}
+
+/* Label — with / prefix matching insp */
+.field-label {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  color: var(--setec-color-text);
+  font-weight: 400;
+
+  &::before {
+    content: "/";
+    color: var(--setec-color-accent);
+  }
+}
+
+/* Input row — input + optional char counter */
+.field-input-row {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+}
+
+/* Text input */
+.field-input {
+  width: 100%;
+  padding: var(--setec-space-2) var(--setec-space-3);
+  background-color: var(--setec-bg-input);
+  color: var(--setec-color-text);
+  border-width: 1px;
+  border-color: var(--setec-border);
+  border-radius: 0;
+  appearance: none;
+  transition: border-color 0.1s;
+
+  &::placeholder {
+    color: var(--setec-neutral-700);
+  }
+
+  &:hover {
+    border-color: var(--setec-border);
+  }
+}
+
+/* Textarea */
+.field-textarea {
+  width: 100%;
+  padding: var(--setec-space-2) var(--setec-space-3);
+  background-color: var(--setec-bg-input);
+  color: var(--setec-color-text);
+  border-width: 1px;
+  border-color: var(--setec-border);
+  border-radius: 0;
+  resize: vertical;
+  min-height: 80px;
+  appearance: none;
+
+  &::placeholder {
+    color: var(--setec-neutral-700);
+  }
+}
+
+/* Select */
+.field-select {
+  width: 100%;
+  padding: var(--setec-space-2) var(--setec-space-3);
+  background-color: var(--setec-bg-input);
+  color: var(--setec-color-text);
+  border-width: 1px;
+  border-color: var(--setec-border);
+  border-radius: 0;
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--setec-space-3) center;
+  padding-right: var(--setec-space-8);
+}
+
+/* Character counter */
+.field-counter {
+  flex-shrink: 0;
+  color: var(--setec-neutral-700);
+  white-space: nowrap;
+  font-size: 0.875rem;
+}
+
+.field-counter--near {
+  color: var(--setec-color-warning);
+}
+
+.field-counter--full {
+  color: var(--setec-color-error);
+}
+
+/* Helper text */
+.field-hint {
+  color: var(--setec-color-comment);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Inline label + control row (label left, control right) */
+.field-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--setec-space-4);
+}
+
+.field-row-label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--setec-space-1);
+  flex: 1;
+}
+
+.field-row-control {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  flex-shrink: 0;
+}

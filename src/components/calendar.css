@@ -1,0 +1,88 @@
+/* SETEC — Week calendar grid */
+
+.calendar-week {
+  width: 100%;
+}
+
+/* Navigation row */
+.cal-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--setec-space-2);
+}
+
+/* Day columns */
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--setec-space-1);
+}
+
+/* Day header (Mon, Tue, ...) */
+.cal-day-header {
+  text-align: center;
+  color: var(--setec-neutral-500);
+  font-size: 0.85rem;
+  padding-bottom: var(--setec-space-1);
+}
+
+/* Individual day column */
+.cal-day-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--setec-space-1);
+}
+
+/* Date number cell */
+.cal-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 2rem;
+  height: 2rem;
+  color: var(--setec-neutral-500);
+  font-size: 0.95rem;
+  position: relative;
+}
+
+/* Today — bright bg box with * prefix */
+.cal-day--today {
+  background-color: var(--setec-color-primary);
+  color: var(--setec-bg);
+  font-weight: 700;
+}
+
+/* Active (has data) */
+.cal-day--active {
+  color: var(--setec-color-text);
+}
+
+/* Future / no data */
+.cal-day--future {
+  color: var(--setec-neutral-700);
+}
+
+/* Activity swatch — colored block below each date */
+.cal-activity {
+  width: 100%;
+  height: 0.6rem;
+  background-color: var(--setec-color-primary);
+}
+
+.cal-activity--partial {
+  background: var(--setec-checkered);
+  background-color: var(--setec-color-accent);
+}
+
+/* Override fill color with variant classes */
+.cal-activity--amber    { background-color: var(--setec-color-accent); }
+.cal-activity--cyan     { background-color: var(--setec-color-secondary); }
+.cal-activity--green    { background-color: var(--setec-color-primary); }
+
+.cal-activity--empty {
+  background: var(--setec-checkered);
+  background-color: var(--setec-bg-input);
+}

@@ -1,0 +1,63 @@
+/* SETEC — Interactive states */
+
+/* ── Focus ── */
+*:focus-visible {
+  outline: 2px solid var(--setec-focus-ring);
+  outline-offset: 2px;
+}
+
+/* ── Semantic state modifiers ── */
+
+/* Error */
+.is-error .field-input,
+.is-error .field-textarea,
+.is-error .field-select,
+.is-error.field-input,
+.is-error.field-textarea,
+.is-error.field-select {
+  border-color: var(--setec-color-error);
+}
+
+.is-error .field-label,
+.is-error .field-hint {
+  color: var(--setec-color-error);
+}
+
+/* Warning */
+.is-warning .field-input,
+.is-warning .field-textarea,
+.is-warning .field-select,
+.is-warning.field-input,
+.is-warning.field-textarea,
+.is-warning.field-select {
+  border-color: var(--setec-color-warning);
+}
+
+.is-warning .field-label,
+.is-warning .field-hint {
+  color: var(--setec-color-warning);
+}
+
+/* Success */
+.is-success .field-input,
+.is-success .field-textarea,
+.is-success .field-select,
+.is-success.field-input,
+.is-success.field-textarea,
+.is-success.field-select {
+  border-color: var(--setec-color-success);
+}
+
+.is-success .field-label,
+.is-success .field-hint {
+  color: var(--setec-color-success);
+}
+
+/* Disabled */
+.is-disabled,
+[disabled],
+[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}

@@ -1,0 +1,81 @@
+/* SETEC — Tab navigation */
+
+/* Primary tabs */
+.nav-tabs {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  border-bottom-width: 1px;
+  border-color: var(--setec-border-subtle);
+  margin-bottom: var(--setec-space-4);
+}
+
+.nav-tab {
+  padding: var(--setec-space-2) var(--setec-space-6);
+  color: var(--setec-neutral-500);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: var(--setec-font-default);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.1s;
+
+  &:hover {
+    color: var(--setec-neutral-300);
+  }
+
+  /* Underline indicator */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 0.1s;
+  }
+}
+
+.nav-tab.active,
+.nav-tab[aria-selected="true"],
+.nav-tab.is-active {
+  color: var(--setec-color-primary);
+  font-weight: 700;
+
+  &::after {
+    background-color: var(--setec-color-primary);
+  }
+}
+
+/* Secondary / nested tabs */
+.nav-tabs--secondary {
+  gap: 0;
+  border-color: transparent;
+  margin-bottom: var(--setec-space-3);
+
+  & .nav-tab {
+    padding: var(--setec-space-1) var(--setec-space-4);
+    font-size: 0.95rem;
+  }
+
+  & .nav-tab.active,
+  & .nav-tab[aria-selected="true"],
+  & .nav-tab.is-active {
+    color: var(--setec-color-secondary);
+
+    &::after {
+      background-color: var(--setec-color-secondary);
+    }
+  }
+}
+
+/* Tab color variants */
+.nav-tabs--amber .nav-tab.active,
+.nav-tabs--amber .nav-tab[aria-selected="true"] {
+  color: var(--setec-color-accent);
+  &::after { background-color: var(--setec-color-accent); }
+}

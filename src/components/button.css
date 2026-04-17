@@ -1,0 +1,125 @@
+/* SETEC — Buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  padding: var(--setec-space-1) var(--setec-space-3);
+  font-family: var(--setec-font-default);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.1s, background-color 0.1s, border-color 0.1s, opacity 0.1s;
+}
+
+/* Primary — bright green fill */
+.btn-primary {
+  color: var(--setec-bg);
+  background-color: var(--setec-color-primary);
+  border-width: 1px;
+  border-color: var(--setec-color-primary);
+
+  &:hover {
+    background-color: var(--setec-green-300);
+    border-color: var(--setec-green-300);
+  }
+}
+
+/* Secondary — cyan fill */
+.btn-secondary {
+  color: var(--setec-bg);
+  background-color: var(--setec-color-secondary);
+  border-width: 1px;
+  border-color: var(--setec-color-secondary);
+
+  &:hover {
+    background-color: var(--setec-cyan-300);
+    border-color: var(--setec-cyan-300);
+  }
+}
+
+/* Danger — red fill */
+.btn-danger {
+  color: var(--setec-bg);
+  background-color: var(--setec-color-error);
+  border-width: 1px;
+  border-color: var(--setec-color-error);
+
+  &:hover {
+    background-color: var(--setec-red-300);
+    border-color: var(--setec-red-300);
+  }
+}
+
+/* Ghost — bracketed, no fill: [label] */
+.btn-ghost {
+  color: var(--setec-neutral-300);
+  background-color: transparent;
+  border-width: 0;
+  padding: 0;
+
+  &::before { content: "["; color: var(--setec-neutral-500); }
+  &::after  { content: "]"; color: var(--setec-neutral-500); }
+
+  &:hover {
+    color: var(--setec-color-text);
+  }
+}
+
+/* Ghost variants with color */
+.btn-ghost-primary {
+  color: var(--setec-color-primary);
+  background-color: transparent;
+  border-width: 0;
+  padding: 0;
+
+  &::before { content: "["; color: var(--setec-neutral-500); }
+  &::after  { content: "]"; color: var(--setec-neutral-500); }
+
+  &:hover { color: var(--setec-green-300); }
+}
+
+.btn-ghost-accent {
+  color: var(--setec-color-accent);
+  background-color: transparent;
+  border-width: 0;
+  padding: 0;
+
+  &::before { content: "["; color: var(--setec-neutral-500); }
+  &::after  { content: "]"; color: var(--setec-neutral-500); }
+
+  &:hover { color: var(--setec-amber-300); }
+}
+
+/* Back button — pill-shaped with < prefix */
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--setec-space-2) var(--setec-space-4);
+  color: var(--setec-neutral-300);
+  background-color: var(--setec-bg-raised);
+  border-width: 1px;
+  border-radius: 9999px;
+
+  &::before {
+    content: "< ";
+    margin-right: var(--setec-space-1);
+    color: var(--setec-neutral-500);
+  }
+
+  &:hover {
+    color: var(--setec-color-text);
+    background-color: var(--setec-bg-hover);
+  }
+}
+
+/* Shared disabled state */
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}

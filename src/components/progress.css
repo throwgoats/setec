@@ -1,0 +1,116 @@
+/* SETEC — Progress bars and segmented meters */
+
+/* ── Progress bar ── */
+.progress-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-3);
+}
+
+.progress-bar-track {
+  flex: 1;
+  height: 1.1rem;
+  background: var(--setec-checkered);
+  background-color: var(--setec-bg-input);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--progress, 0%);
+  background-color: var(--setec-color-accent);
+  transition: width 0.3s ease;
+}
+
+.progress-bar-label {
+  flex-shrink: 0;
+  color: var(--setec-color-text);
+  min-width: 3ch;
+  text-align: right;
+}
+
+/* Color variants */
+.progress-bar--primary .progress-bar-fill   { background-color: var(--setec-color-primary); }
+.progress-bar--secondary .progress-bar-fill { background-color: var(--setec-color-secondary); }
+.progress-bar--accent .progress-bar-fill    { background-color: var(--setec-color-accent); }
+.progress-bar--error .progress-bar-fill     { background-color: var(--setec-color-error); }
+
+/* ── Segmented meter ── [■|■|□|□|□] style
+   Usage: <div class="meter" style="--meter-total:6; --meter-filled:3">
+   Or manually apply .meter-seg--filled / .meter-seg--partial / .meter-seg--empty to children */
+
+.meter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--setec-space-1);
+}
+
+.meter-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.meter-bracket-open {
+  color: var(--setec-neutral-500);
+  margin-right: 1px;
+  &::before { content: "["; }
+}
+
+.meter-bracket-close {
+  color: var(--setec-neutral-500);
+  margin-left: 1px;
+  &::before { content: "]"; }
+}
+
+.meter-segments {
+  display: flex;
+  gap: 2px;
+}
+
+.meter-seg {
+  width: 2rem;
+  height: 1.1rem;
+}
+
+.meter-seg--filled {
+  background-color: var(--setec-neutral-300);
+}
+
+.meter-seg--filled-primary  { background-color: var(--setec-color-primary); }
+.meter-seg--filled-accent   { background-color: var(--setec-color-accent); }
+.meter-seg--filled-secondary { background-color: var(--setec-color-secondary); }
+
+.meter-seg--partial {
+  background-color: var(--setec-color-accent);
+}
+
+.meter-seg--empty {
+  background: var(--setec-checkered);
+  background-color: var(--setec-bg-input);
+}
+
+.meter-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--setec-space-4);
+}
+
+.meter-count {
+  color: var(--setec-neutral-300);
+  font-size: 0.95rem;
+}
+
+.meter-tier {
+  color: var(--setec-neutral-500);
+  font-size: 0.9rem;
+}
+
+.meter-xp {
+  color: var(--setec-color-accent);
+}

@@ -1,0 +1,58 @@
+/* SETEC — Stat rows and sections */
+
+/* Stat section: icon + heading grouping */
+.stat-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--setec-space-2);
+  padding: var(--setec-space-3) 0;
+  border-bottom-width: 1px;
+  border-color: var(--setec-border-subtle);
+}
+
+.stat-section-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  font-weight: 700;
+  color: var(--setec-color-text);
+}
+
+/* Stat row: label + value */
+.stat-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--setec-space-2);
+}
+
+.stat-row-label {
+  color: var(--setec-neutral-500);
+}
+
+.stat-row-label::after {
+  content: ":";
+}
+
+/* Highlighted value */
+.stat-value {
+  color: var(--setec-color-primary);
+  font-weight: 400;
+}
+
+.stat-value--accent    { color: var(--setec-color-accent); }
+.stat-value--secondary { color: var(--setec-color-secondary); }
+.stat-value--muted     { color: var(--setec-neutral-500); }
+.stat-value--error     { color: var(--setec-color-error); }
+
+/* Trend indicators */
+.trend-up {
+  color: var(--setec-color-success);
+
+  &::before { content: "↑"; margin-right: 0.1em; }
+}
+
+.trend-down {
+  color: var(--setec-color-error);
+
+  &::before { content: "↓"; margin-right: 0.1em; }
+}

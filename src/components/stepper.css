@@ -1,0 +1,39 @@
+/* SETEC — [-] N [+] stepper */
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+}
+
+.stepper-dec,
+.stepper-inc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--setec-neutral-500);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.1s;
+
+  &::before { content: "["; color: var(--setec-neutral-700); }
+  &::after  { content: "]"; color: var(--setec-neutral-700); }
+
+  &:hover {
+    color: var(--setec-color-text);
+  }
+}
+
+.stepper-dec::before { content: "[−"; }
+.stepper-dec::after  { content: "]"; }
+.stepper-inc::before { content: "[+"; }
+.stepper-inc::after  { content: "]"; }
+
+.stepper-value {
+  min-width: 2ch;
+  text-align: center;
+  color: var(--setec-color-text);
+  font-weight: 700;
+}

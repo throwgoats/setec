@@ -1,0 +1,45 @@
+/* SETEC — Day-of-week button row (M T W T F S S) */
+
+.day-picker {
+  display: flex;
+  gap: var(--setec-space-2);
+  flex-wrap: wrap;
+}
+
+.day-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  font-family: var(--setec-font-default);
+  font-size: 0.9rem;
+  font-weight: 700;
+  background-color: var(--setec-bg-input);
+  color: var(--setec-neutral-500);
+  border-width: 1px;
+  border-color: var(--setec-border);
+  cursor: pointer;
+  transition: background-color 0.1s, color 0.1s, border-color 0.1s;
+  user-select: none;
+
+  &:hover {
+    border-color: var(--setec-color-accent);
+    color: var(--setec-color-accent);
+  }
+}
+
+/* Active — filled background */
+.day-btn.active,
+.day-btn[aria-pressed="true"],
+.day-btn.is-active {
+  background-color: var(--setec-color-accent);
+  border-color: var(--setec-color-accent);
+  color: var(--setec-bg);
+}
+
+/* Inactive (explicit) — more muted than default */
+.day-btn.inactive,
+.day-btn[aria-pressed="false"] {
+  opacity: 0.45;
+}

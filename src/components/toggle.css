@@ -1,0 +1,69 @@
+/* SETEC — [off] / [on] text toggle
+   Usage: <span class="toggle" data-state="on">
+   Or with a real checkbox: <label class="toggle-label"><input type="checkbox" class="toggle-input"> */
+
+/* Display-only toggle via data attribute */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  cursor: pointer;
+}
+
+.toggle-off,
+.toggle-on {
+  padding: 0;
+  color: var(--setec-neutral-700);
+
+  &::before { content: "["; }
+  &::after  { content: "]"; }
+}
+
+/* Active state via data attribute */
+.toggle[data-state="off"] .toggle-off,
+.toggle[data-state="on"]  .toggle-on {
+  color: var(--setec-color-accent);
+  font-weight: 700;
+}
+
+/* Checkbox-driven toggle */
+.toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  cursor: pointer;
+}
+
+/* The [off] [on] pair rendered via pseudo-elements on a wrapper */
+.toggle-pair {
+  display: inline-flex;
+  gap: var(--setec-space-2);
+}
+
+.toggle-pair-off::before { content: "["; color: var(--setec-neutral-500); }
+.toggle-pair-off::after  { content: "]"; color: var(--setec-neutral-500); }
+.toggle-pair-on::before  { content: "["; color: var(--setec-neutral-500); }
+.toggle-pair-on::after   { content: "]"; color: var(--setec-neutral-500); }
+
+.toggle-pair-off { color: var(--setec-neutral-700); }
+.toggle-pair-on  { color: var(--setec-neutral-700); }
+
+/* When checkbox is checked, [on] highlights */
+.toggle-input:checked ~ .toggle-label .toggle-pair-on,
+.toggle-input:checked + .toggle-pair-on {
+  color: var(--setec-color-accent);
+  font-weight: 700;
+}
+
+.toggle-input:not(:checked) ~ .toggle-label .toggle-pair-off,
+.toggle-input:not(:checked) + .toggle-pair-off {
+  color: var(--setec-color-accent);
+  font-weight: 700;
+}

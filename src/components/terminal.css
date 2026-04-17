@@ -1,0 +1,108 @@
+/* SETEC — Terminal / shell chrome components */
+
+/* ── Prompt line: user@host $ command ── */
+.prompt {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0;
+  line-height: 1.5;
+  margin-bottom: var(--setec-space-1);
+}
+
+.prompt-user {
+  color: var(--setec-color-secondary);
+  font-weight: 400;
+}
+
+.prompt-at {
+  color: var(--setec-neutral-500);
+}
+
+.prompt-host {
+  color: var(--setec-color-secondary);
+}
+
+.prompt-dollar {
+  color: var(--setec-color-primary);
+  margin: 0 0.4em;
+}
+
+.prompt-cmd {
+  color: var(--setec-color-text);
+  font-weight: 400;
+}
+
+/* Bracket role tag: user[pro] */
+.prompt-role {
+  color: var(--setec-neutral-500);
+
+  &::before { content: "["; }
+  &::after  { content: "]"; }
+}
+
+/* ── Comment text: // description ── */
+.comment {
+  color: var(--setec-color-comment);
+  line-height: 1.4;
+}
+
+/* ── Section header with collapse indicator ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--setec-space-2);
+  cursor: pointer;
+  user-select: none;
+  padding: var(--setec-space-3) 0;
+  border-top-width: 1px;
+  border-color: var(--setec-border-subtle);
+}
+
+.section-header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  font-weight: 700;
+  color: var(--setec-color-primary);
+}
+
+/* Amber variant */
+.section-header--amber .section-header-left { color: var(--setec-color-accent); }
+.section-header--cyan  .section-header-left { color: var(--setec-color-secondary); }
+.section-header--purple .section-header-left { color: var(--setec-purple-500); }
+
+.section-header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  color: var(--setec-neutral-500);
+}
+
+.section-header-count {
+  &::before { content: "["; }
+  &::after  { content: "]"; }
+}
+
+/* Collapse chevron */
+.section-header-chevron::after {
+  content: "▼";
+  display: inline-block;
+  font-size: 0.7em;
+  transition: transform 0.15s;
+  margin-left: var(--setec-space-1);
+}
+
+.section-header.collapsed .section-header-chevron::after {
+  transform: rotate(-90deg);
+}
+
+/* Section body — hidden when collapsed */
+.section-body {
+  overflow: hidden;
+}
+
+.section-header.collapsed + .section-body {
+  display: none;
+}

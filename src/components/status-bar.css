@@ -1,0 +1,21 @@
+/* SETEC — Mobile-style status bar */
+
+.status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--setec-space-1) var(--setec-space-4);
+  color: var(--setec-color-text);
+  font-size: 0.9rem;
+}
+
+.status-bar-time {
+  font-weight: 700;
+}
+
+.status-bar-icons {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  color: var(--setec-color-text);
+}

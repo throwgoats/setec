@@ -1,0 +1,50 @@
+/* SETEC — Horizontal bar chart rows */
+
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--setec-space-2);
+}
+
+.bar-chart-row {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-3);
+}
+
+.bar-chart-label {
+  flex-shrink: 0;
+  width: 2rem;
+  color: var(--setec-neutral-500);
+  font-size: 0.9rem;
+}
+
+.bar-chart-track {
+  flex: 1;
+  height: 0.9rem;
+  background: var(--setec-checkered);
+  background-color: var(--setec-bg-input);
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-chart-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--bar-width, 0%);
+  background-color: var(--setec-color-primary);
+}
+
+.bar-chart-value {
+  flex-shrink: 0;
+  min-width: 3ch;
+  text-align: right;
+  color: var(--setec-color-text);
+  font-size: 0.9rem;
+}
+
+/* Color variants */
+.bar-chart--secondary .bar-chart-fill { background-color: var(--setec-color-secondary); }
+.bar-chart--accent    .bar-chart-fill { background-color: var(--setec-color-accent); }

@@ -1,0 +1,55 @@
+/* SETEC — Nerd Font @font-face declarations
+   woff2 files are expected in /fonts/
+   Fonts can also be loaded from nerdfonts.com CDN or locally installed.
+   If using system-installed Nerdfonts, these @font-face blocks are not required. */
+
+/* JetBrainsMono Nerd Font — default */
+@font-face {
+  font-family: "JetBrainsMono Nerd Font";
+  src: url("../fonts/JetBrainsMonoNerdFont-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrainsMono Nerd Font";
+  src: url("../fonts/JetBrainsMonoNerdFont-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Hack Nerd Font */
+@font-face {
+  font-family: "Hack Nerd Font";
+  src: url("../fonts/HackNerdFont-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hack Nerd Font";
+  src: url("../fonts/HackNerdFont-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Iosevka Nerd Font */
+@font-face {
+  font-family: "Iosevka Nerd Font";
+  src: url("../fonts/IosevkaNerdFont-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Iosevka Nerd Font";
+  src: url("../fonts/IosevkaNerdFont-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

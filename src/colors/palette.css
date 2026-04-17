@@ -1,0 +1,137 @@
+/* SETEC — Color utility classes
+   Pattern: .text-{hue}, .text-{hue}-{shade}, .bg-{hue}, .bg-{hue}-{shade}, .border-{hue}
+   Shades: 100 (lightest) → 900 (darkest) */
+
+/* ── Text colors ── */
+
+/* Green */
+.text-green     { color: var(--setec-green-500); }
+.text-green-100 { color: var(--setec-green-100); }
+.text-green-300 { color: var(--setec-green-300); }
+.text-green-500 { color: var(--setec-green-500); }
+.text-green-700 { color: var(--setec-green-700); }
+.text-green-900 { color: var(--setec-green-900); }
+
+/* Cyan */
+.text-cyan     { color: var(--setec-cyan-500); }
+.text-cyan-100 { color: var(--setec-cyan-100); }
+.text-cyan-300 { color: var(--setec-cyan-300); }
+.text-cyan-500 { color: var(--setec-cyan-500); }
+.text-cyan-700 { color: var(--setec-cyan-700); }
+.text-cyan-900 { color: var(--setec-cyan-900); }
+
+/* Amber */
+.text-amber     { color: var(--setec-amber-500); }
+.text-amber-100 { color: var(--setec-amber-100); }
+.text-amber-300 { color: var(--setec-amber-300); }
+.text-amber-500 { color: var(--setec-amber-500); }
+.text-amber-700 { color: var(--setec-amber-700); }
+.text-amber-900 { color: var(--setec-amber-900); }
+
+/* Purple */
+.text-purple     { color: var(--setec-purple-500); }
+.text-purple-100 { color: var(--setec-purple-100); }
+.text-purple-300 { color: var(--setec-purple-300); }
+.text-purple-500 { color: var(--setec-purple-500); }
+.text-purple-700 { color: var(--setec-purple-700); }
+.text-purple-900 { color: var(--setec-purple-900); }
+
+/* Red */
+.text-red     { color: var(--setec-red-500); }
+.text-red-100 { color: var(--setec-red-100); }
+.text-red-300 { color: var(--setec-red-300); }
+.text-red-500 { color: var(--setec-red-500); }
+.text-red-700 { color: var(--setec-red-700); }
+.text-red-900 { color: var(--setec-red-900); }
+
+/* Neutral */
+.text-neutral     { color: var(--setec-neutral-500); }
+.text-neutral-100 { color: var(--setec-neutral-100); }
+.text-neutral-300 { color: var(--setec-neutral-300); }
+.text-neutral-500 { color: var(--setec-neutral-500); }
+.text-neutral-700 { color: var(--setec-neutral-700); }
+.text-neutral-900 { color: var(--setec-neutral-900); }
+
+/* Semantic text */
+.text-primary   { color: var(--setec-color-primary); }
+.text-secondary { color: var(--setec-color-secondary); }
+.text-accent    { color: var(--setec-color-accent); }
+.text-error     { color: var(--setec-color-error); }
+.text-warning   { color: var(--setec-color-warning); }
+.text-success   { color: var(--setec-color-success); }
+.text-comment   { color: var(--setec-color-comment); }
+.text-base      { color: var(--setec-color-text); }
+
+/* ── Background colors ── */
+
+/* Green */
+.bg-green     { background-color: var(--setec-green-500); }
+.bg-green-100 { background-color: var(--setec-green-100); }
+.bg-green-300 { background-color: var(--setec-green-300); }
+.bg-green-500 { background-color: var(--setec-green-500); }
+.bg-green-700 { background-color: var(--setec-green-700); }
+.bg-green-900 { background-color: var(--setec-green-900); }
+
+/* Cyan */
+.bg-cyan     { background-color: var(--setec-cyan-500); }
+.bg-cyan-100 { background-color: var(--setec-cyan-100); }
+.bg-cyan-300 { background-color: var(--setec-cyan-300); }
+.bg-cyan-500 { background-color: var(--setec-cyan-500); }
+.bg-cyan-700 { background-color: var(--setec-cyan-700); }
+.bg-cyan-900 { background-color: var(--setec-cyan-900); }
+
+/* Amber */
+.bg-amber     { background-color: var(--setec-amber-500); }
+.bg-amber-100 { background-color: var(--setec-amber-100); }
+.bg-amber-300 { background-color: var(--setec-amber-300); }
+.bg-amber-500 { background-color: var(--setec-amber-500); }
+.bg-amber-700 { background-color: var(--setec-amber-700); }
+.bg-amber-900 { background-color: var(--setec-amber-900); }
+
+/* Purple */
+.bg-purple     { background-color: var(--setec-purple-500); }
+.bg-purple-100 { background-color: var(--setec-purple-100); }
+.bg-purple-300 { background-color: var(--setec-purple-300); }
+.bg-purple-500 { background-color: var(--setec-purple-500); }
+.bg-purple-700 { background-color: var(--setec-purple-700); }
+.bg-purple-900 { background-color: var(--setec-purple-900); }
+
+/* Red */
+.bg-red     { background-color: var(--setec-red-500); }
+.bg-red-100 { background-color: var(--setec-red-100); }
+.bg-red-300 { background-color: var(--setec-red-300); }
+.bg-red-500 { background-color: var(--setec-red-500); }
+.bg-red-700 { background-color: var(--setec-red-700); }
+.bg-red-900 { background-color: var(--setec-red-900); }
+
+/* Neutral */
+.bg-neutral     { background-color: var(--setec-neutral-500); }
+.bg-neutral-100 { background-color: var(--setec-neutral-100); }
+.bg-neutral-300 { background-color: var(--setec-neutral-300); }
+.bg-neutral-500 { background-color: var(--setec-neutral-500); }
+.bg-neutral-700 { background-color: var(--setec-neutral-700); }
+.bg-neutral-900 { background-color: var(--setec-neutral-900); }
+
+/* Semantic backgrounds */
+.bg-surface       { background-color: var(--setec-bg); }
+.bg-surface-raised { background-color: var(--setec-bg-raised); }
+.bg-input         { background-color: var(--setec-bg-input); }
+
+/* ── Border colors ── */
+
+.border-green   { border-color: var(--setec-green-500); }
+.border-cyan    { border-color: var(--setec-cyan-500); }
+.border-amber   { border-color: var(--setec-amber-500); }
+.border-purple  { border-color: var(--setec-purple-500); }
+.border-red     { border-color: var(--setec-red-500); }
+.border-neutral { border-color: var(--setec-neutral-500); }
+.border-subtle  { border-color: var(--setec-border-subtle); }
+.border-default { border-color: var(--setec-border); }
+
+/* Semantic borders */
+.border-primary   { border-color: var(--setec-color-primary); }
+.border-secondary { border-color: var(--setec-color-secondary); }
+.border-accent    { border-color: var(--setec-color-accent); }
+.border-error     { border-color: var(--setec-color-error); }
+.border-warning   { border-color: var(--setec-color-warning); }
+.border-success   { border-color: var(--setec-color-success); }
