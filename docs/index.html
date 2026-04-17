@@ -764,6 +764,13 @@
       toggle.dataset.state = toggle.dataset.state === 'on' ? 'off' : 'on';
     });
   });
+
+  // Checkbox toggle
+  document.querySelectorAll('.checkbox').forEach(cb => {
+    cb.addEventListener('click', () => {
+      cb.classList.toggle('is-checked');
+    });
+  });
 </script>
 
 </body>
