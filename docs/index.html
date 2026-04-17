@@ -1,777 +1,1378 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SETEC — Component Reference</title>
-  <link rel="stylesheet" href="./setec.css">
-  <style>
-    body { padding: 2rem; max-width: 700px; margin: 0 auto; }
-    .demo-section { margin-bottom: 3rem; }
-    .demo-section h2 {
-      font-family: var(--setec-font-jetbrains, monospace);
-      color: var(--setec-neutral-500);
-      font-size: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--setec-border-subtle);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .demo-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; }
-    .contrast-control {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      background: var(--setec-bg-raised);
-      border: 1px solid var(--setec-border);
-      padding: 0.75rem 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-family: var(--setec-font-jetbrains, monospace);
-      font-size: 0.85rem;
-    }
-    .contrast-control label { color: var(--setec-neutral-500); }
-    .contrast-control input[type=range] { width: 120px; cursor: pointer; }
-    .contrast-val { color: var(--setec-color-primary); min-width: 3ch; }
-  </style>
-</head>
-<body>
-
-<!-- ══════════════════════════════════════════════════
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SETEC — Component Reference</title>
+        <link rel="stylesheet" href="./setec.css" />
+        <style>
+            body {
+                padding: 2rem;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+            .demo-section {
+                margin-bottom: 3rem;
+            }
+            .demo-section h2 {
+                font-family: var(--setec-font-jetbrains, monospace);
+                color: var(--setec-neutral-500);
+                font-size: 0.75rem;
+                font-weight: 400;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                border-bottom: 1px solid var(--setec-border-subtle);
+                padding-bottom: 0.5rem;
+                margin-bottom: 1.5rem;
+            }
+            .demo-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+                align-items: center;
+                margin-bottom: 0.75rem;
+            }
+            .contrast-control {
+                position: fixed;
+                bottom: 1.5rem;
+                right: 1.5rem;
+                background: var(--setec-bg-raised);
+                border: 1px solid var(--setec-border);
+                padding: 0.75rem 1rem;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                font-family: var(--setec-font-jetbrains, monospace);
+                font-size: 0.85rem;
+            }
+            .contrast-control label {
+                color: var(--setec-neutral-500);
+            }
+            .contrast-control input[type="range"] {
+                width: 120px;
+                cursor: pointer;
+            }
+            .contrast-val {
+                color: var(--setec-color-primary);
+                min-width: 3ch;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- ══════════════════════════════════════════════════
      CONTRAST CONTROL
      ══════════════════════════════════════════════════ -->
-<div class="contrast-control">
-  <label>--setec-contrast</label>
-  <input type="range" min="1" max="100" value="80" id="contrast-slider">
-  <span class="contrast-val" id="contrast-val">80</span>
-</div>
+        <div class="contrast-control">
+            <label>--setec-contrast</label>
+            <input
+                type="range"
+                min="1"
+                max="100"
+                value="80"
+                id="contrast-slider"
+            />
+            <span class="contrast-val" id="contrast-val">80</span>
+        </div>
 
-<!-- ══════════════════════════════════════════════════
+        <!-- ══════════════════════════════════════════════════
      TERMINAL CHROME
      ══════════════════════════════════════════════════ -->
-<div class="demo-section">
-  <h2>// terminal chrome</h2>
+        <div class="demo-section">
+            <h2>// terminal chrome</h2>
 
-  <div class="prompt">
-    <span class="prompt-user">user<span class="prompt-role">pro</span></span>
-    <span class="prompt-at">@</span>
-    <span class="prompt-host">init.Habits</span>
-    <span class="prompt-dollar">$</span>
-    <span class="prompt-cmd">daily</span>
-  </div>
-  <div class="comment">// too many secrets. setec astronomy.</div>
+            <div class="prompt">
+                <span class="prompt-user"
+                    >user<span class="prompt-role">pro</span></span
+                >
+                <span class="prompt-at">@</span>
+                <span class="prompt-host">init.Habits</span>
+                <span class="prompt-dollar">$</span>
+                <span class="prompt-cmd">daily</span>
+            </div>
+            <div class="comment">// SETEC Astronomy (Too Many Secrets)</div>
 
-  <br>
+            <br />
 
-  <div class="section-header">
-    <div class="section-header-left">
-      ☀️ <span>Morning</span>
-    </div>
-    <div class="section-header-right">
-      <span class="section-header-count">3/5</span>
-      <span class="section-header-chevron"></span>
-    </div>
-  </div>
-  <div class="section-body">
-    <label class="checkbox is-checked"><span class="checkbox-indicator"></span><span class="checkbox-text">Meditate <span class="badge badge-accent ml-2">🔥 4</span></span></label>
-    <label class="checkbox is-checked"><span class="checkbox-indicator"></span><span class="checkbox-text text-cyan">Cold shower</span></label>
-    <label class="checkbox is-checked"><span class="checkbox-indicator"></span><span class="checkbox-text text-cyan">Exercise <span class="comment">// 30 min</span></span></label>
-    <label class="checkbox"><span class="checkbox-indicator"></span><span class="checkbox-text">Journal <span class="comment">// 3 pages minimum</span></span></label>
-    <label class="checkbox"><span class="checkbox-indicator"></span><span class="checkbox-text text-muted">Healthy breakfast</span></label>
-  </div>
+            <div class="section-header">
+                <div class="section-header-left">☀️ <span>Morning</span></div>
+                <div class="section-header-right">
+                    <span class="section-header-count">3/5</span>
+                    <span class="section-header-chevron"></span>
+                </div>
+            </div>
+            <div class="section-body">
+                <label class="checkbox is-checked"
+                    ><span class="checkbox-indicator"></span
+                    ><span class="checkbox-text"
+                        >Meditate
+                        <span class="badge badge-accent ml-2">🔥 4</span></span
+                    ></label
+                >
+                <label class="checkbox is-checked"
+                    ><span class="checkbox-indicator"></span
+                    ><span class="checkbox-text text-cyan"
+                        >Cold shower</span
+                    ></label
+                >
+                <label class="checkbox is-checked"
+                    ><span class="checkbox-indicator"></span
+                    ><span class="checkbox-text text-cyan"
+                        >Exercise <span class="comment">// 30 min</span></span
+                    ></label
+                >
+                <label class="checkbox"
+                    ><span class="checkbox-indicator"></span
+                    ><span class="checkbox-text"
+                        >Journal
+                        <span class="comment">// 3 pages minimum</span></span
+                    ></label
+                >
+                <label class="checkbox"
+                    ><span class="checkbox-indicator"></span
+                    ><span class="checkbox-text text-muted"
+                        >Healthy breakfast</span
+                    ></label
+                >
+            </div>
 
-  <div class="section-header section-header--amber">
-    <div class="section-header-left">
-      🌙 <span>Evening</span>
-    </div>
-    <div class="section-header-right">
-      <span class="section-header-count">2/3</span>
-      <span class="section-header-chevron"></span>
-    </div>
-  </div>
-  <div class="section-body">
-    <label class="checkbox is-checked"><span class="checkbox-indicator"></span><span class="checkbox-text text-amber">No screens after 9pm <span class="badge badge-accent ml-2">🔥 7</span></span></label>
-    <label class="checkbox is-checked"><span class="checkbox-indicator"></span><span class="checkbox-text">Gratitude log <span class="comment">// 3 things</span></span></label>
-    <label class="checkbox"><span class="checkbox-indicator"></span><span class="checkbox-text text-muted">Read <span class="comment">// &gt;30 pages</span></span></label>
-  </div>
+            <div class="section-header section-header--amber">
+                <div class="section-header-left">🌙 <span>Evening</span></div>
+                <div class="section-header-right">
+                    <span class="section-header-count">2/3</span>
+                    <span class="section-header-chevron"></span>
+                </div>
+            </div>
+            <div class="section-body">
+                <label class="checkbox is-checked"
+                    ><span class="checkbox-indicator"></span
+                    ><span class="checkbox-text text-amber"
+                        >No screens after 9pm
+                        <span class="badge badge-accent ml-2">🔥 7</span></span
+                    ></label
+                >
+                <label class="checkbox is-checked"
+                    ><span class="checkbox-indicator"></span
+                    ><span class="checkbox-text"
+                        >Gratitude log
+                        <span class="comment">// 3 things</span></span
+                    ></label
+                >
+                <label class="checkbox"
+                    ><span class="checkbox-indicator"></span
+                    ><span class="checkbox-text text-muted"
+                        >Read <span class="comment">// &gt;30 pages</span></span
+                    ></label
+                >
+            </div>
 
-  <div class="section-header section-header--purple collapsed">
-    <div class="section-header-left">
-      💤 <span>Wind Down</span>
-    </div>
-    <div class="section-header-right">
-      <span class="section-header-count">0/4</span>
-      <span class="section-header-chevron"></span>
-    </div>
-  </div>
-  <div class="section-body">
-    <label class="checkbox"><span class="checkbox-indicator"></span><span class="checkbox-text">Stretch <span class="comment">// 10 min</span></span></label>
-    <label class="checkbox"><span class="checkbox-indicator"></span><span class="checkbox-text text-muted">Prepare tomorrow</span></label>
-    <label class="checkbox"><span class="checkbox-indicator"></span><span class="checkbox-text text-muted">Lights out by 11pm</span></label>
-    <label class="checkbox"><span class="checkbox-indicator"></span><span class="checkbox-text text-muted">No caffeine after 2pm <span class="comment">// retroactive</span></span></label>
-  </div>
-</div>
+            <div class="section-header section-header--purple collapsed">
+                <div class="section-header-left">💤 <span>Wind Down</span></div>
+                <div class="section-header-right">
+                    <span class="section-header-count">0/4</span>
+                    <span class="section-header-chevron"></span>
+                </div>
+            </div>
+            <div class="section-body">
+                <label class="checkbox"
+                    ><span class="checkbox-indicator"></span
+                    ><span class="checkbox-text"
+                        >Stretch <span class="comment">// 10 min</span></span
+                    ></label
+                >
+                <label class="checkbox"
+                    ><span class="checkbox-indicator"></span
+                    ><span class="checkbox-text text-muted"
+                        >Prepare tomorrow</span
+                    ></label
+                >
+                <label class="checkbox"
+                    ><span class="checkbox-indicator"></span
+                    ><span class="checkbox-text text-muted"
+                        >Lights out by 11pm</span
+                    ></label
+                >
+                <label class="checkbox"
+                    ><span class="checkbox-indicator"></span
+                    ><span class="checkbox-text text-muted"
+                        >No caffeine after 2pm
+                        <span class="comment">// retroactive</span></span
+                    ></label
+                >
+            </div>
+        </div>
 
-<!-- ══════════════════════════════════════════════════
+        <!-- ══════════════════════════════════════════════════
      TAB NAVIGATION
      ══════════════════════════════════════════════════ -->
-<div class="demo-section">
-  <h2>// navigation</h2>
+        <div class="demo-section">
+            <h2>// navigation</h2>
 
-  <nav class="nav-tabs">
-    <button class="nav-tab active">habits</button>
-    <button class="nav-tab">stats</button>
-    <button class="nav-tab">profile</button>
-  </nav>
+            <nav class="nav-tabs">
+                <button class="nav-tab active">habits</button>
+                <button class="nav-tab">stats</button>
+                <button class="nav-tab">profile</button>
+            </nav>
 
-  <nav class="nav-tabs nav-tabs--secondary">
-    <button class="nav-tab active">overview</button>
-    <button class="nav-tab">month</button>
-    <button class="nav-tab">week</button>
-    <button class="nav-tab">habits</button>
-  </nav>
+            <nav class="nav-tabs nav-tabs--secondary">
+                <button class="nav-tab active">overview</button>
+                <button class="nav-tab">month</button>
+                <button class="nav-tab">week</button>
+                <button class="nav-tab">habits</button>
+            </nav>
 
-  <nav class="nav-tabs nav-tabs--amber">
-    <button class="nav-tab active">habits</button>
-    <button class="nav-tab">stats</button>
-    <button class="nav-tab">profile</button>
-  </nav>
-</div>
+            <nav class="nav-tabs nav-tabs--amber">
+                <button class="nav-tab active">habits</button>
+                <button class="nav-tab">stats</button>
+                <button class="nav-tab">profile</button>
+            </nav>
+        </div>
 
-<!-- ══════════════════════════════════════════════════
+        <!-- ══════════════════════════════════════════════════
      TYPOGRAPHY
      ══════════════════════════════════════════════════ -->
-<div class="demo-section">
-  <h2>// typography</h2>
+        <div class="demo-section">
+            <h2>// typography</h2>
 
-  <div class="demo-row" style="gap:1.5rem">
-    <div>
-      <div class="comment">// JetBrainsMono (default)</div>
-      <div class="font-jetbrains heading-primary">The quick brown fox</div>
-      <div class="font-jetbrains">The quick brown fox jumps</div>
-    </div>
-    <div>
-      <div class="comment">// Hack</div>
-      <div class="font-hack heading-accent">The quick brown fox</div>
-      <div class="font-hack">The quick brown fox jumps</div>
-    </div>
-    <div>
-      <div class="comment">// Iosevka</div>
-      <div class="font-iosevka heading-secondary">The quick brown fox</div>
-      <div class="font-iosevka">The quick brown fox jumps</div>
-    </div>
-  </div>
+            <div class="demo-row" style="gap: 1.5rem">
+                <div>
+                    <div class="comment">// JetBrainsMono (default)</div>
+                    <div class="font-jetbrains heading-primary">
+                        The quick brown fox
+                    </div>
+                    <div class="font-jetbrains">The quick brown fox jumps</div>
+                </div>
+                <div>
+                    <div class="comment">// Hack</div>
+                    <div class="font-hack heading-accent">
+                        The quick brown fox
+                    </div>
+                    <div class="font-hack">The quick brown fox jumps</div>
+                </div>
+                <div>
+                    <div class="comment">// Iosevka</div>
+                    <div class="font-iosevka heading-secondary">
+                        The quick brown fox
+                    </div>
+                    <div class="font-iosevka">The quick brown fox jumps</div>
+                </div>
+            </div>
 
-  <br>
-  <div class="heading">Heading (bold, base color)</div>
-  <div class="heading-primary">Heading primary (green)</div>
-  <div class="heading-secondary">Heading secondary (cyan)</div>
-  <div class="heading-accent">Heading accent (amber)</div>
-  <div class="paragraph">Paragraph text — normal weight, full readability.</div>
-  <div class="comment">// This is a comment — gray, used for descriptions and hints</div>
-  <div class="text-muted">Muted text — secondary information</div>
-</div>
+            <br />
+            <div class="heading">Heading (bold, base color)</div>
+            <div class="heading-primary">Heading primary (green)</div>
+            <div class="heading-secondary">Heading secondary (cyan)</div>
+            <div class="heading-accent">Heading accent (amber)</div>
+            <div class="paragraph">
+                Paragraph text — normal weight, full readability.
+            </div>
+            <div class="comment">
+                // This is a comment — gray, used for descriptions and hints
+            </div>
+            <div class="text-muted">Muted text — secondary information</div>
+        </div>
 
-<!-- ══════════════════════════════════════════════════
+        <!-- ══════════════════════════════════════════════════
      COLOR PALETTE
      ══════════════════════════════════════════════════ -->
-<div class="demo-section">
-  <h2>// color palette</h2>
+        <div class="demo-section">
+            <h2>// color palette</h2>
 
-  <div style="display:grid; grid-template-columns: repeat(5, 1fr); gap: 3px; margin-bottom:1rem;">
-    <div class="bg-green-100" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">100</div>
-    <div class="bg-green-300" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">300</div>
-    <div class="bg-green-500" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem; color:var(--setec-bg)">500</div>
-    <div class="bg-green-700" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">700</div>
-    <div class="bg-green-900" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">900</div>
+            <div
+                style="
+                    display: grid;
+                    grid-template-columns: repeat(5, 1fr);
+                    gap: 3px;
+                    margin-bottom: 1rem;
+                "
+            >
+                <div
+                    class="bg-green-100"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    100
+                </div>
+                <div
+                    class="bg-green-300"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    300
+                </div>
+                <div
+                    class="bg-green-500"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                        color: var(--setec-bg);
+                    "
+                >
+                    500
+                </div>
+                <div
+                    class="bg-green-700"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    700
+                </div>
+                <div
+                    class="bg-green-900"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    900
+                </div>
 
-    <div class="bg-cyan-100" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">100</div>
-    <div class="bg-cyan-300" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">300</div>
-    <div class="bg-cyan-500" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem; color:var(--setec-bg)">500</div>
-    <div class="bg-cyan-700" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">700</div>
-    <div class="bg-cyan-900" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">900</div>
+                <div
+                    class="bg-cyan-100"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    100
+                </div>
+                <div
+                    class="bg-cyan-300"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    300
+                </div>
+                <div
+                    class="bg-cyan-500"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                        color: var(--setec-bg);
+                    "
+                >
+                    500
+                </div>
+                <div
+                    class="bg-cyan-700"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    700
+                </div>
+                <div
+                    class="bg-cyan-900"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    900
+                </div>
 
-    <div class="bg-amber-100" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">100</div>
-    <div class="bg-amber-300" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">300</div>
-    <div class="bg-amber-500" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem; color:var(--setec-bg)">500</div>
-    <div class="bg-amber-700" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">700</div>
-    <div class="bg-amber-900" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">900</div>
+                <div
+                    class="bg-amber-100"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    100
+                </div>
+                <div
+                    class="bg-amber-300"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    300
+                </div>
+                <div
+                    class="bg-amber-500"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                        color: var(--setec-bg);
+                    "
+                >
+                    500
+                </div>
+                <div
+                    class="bg-amber-700"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    700
+                </div>
+                <div
+                    class="bg-amber-900"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    900
+                </div>
 
-    <div class="bg-purple-100" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">100</div>
-    <div class="bg-purple-300" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">300</div>
-    <div class="bg-purple-500" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem; color:var(--setec-bg)">500</div>
-    <div class="bg-purple-700" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">700</div>
-    <div class="bg-purple-900" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">900</div>
+                <div
+                    class="bg-purple-100"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    100
+                </div>
+                <div
+                    class="bg-purple-300"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    300
+                </div>
+                <div
+                    class="bg-purple-500"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                        color: var(--setec-bg);
+                    "
+                >
+                    500
+                </div>
+                <div
+                    class="bg-purple-700"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    700
+                </div>
+                <div
+                    class="bg-purple-900"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    900
+                </div>
 
-    <div class="bg-red-100" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">100</div>
-    <div class="bg-red-300" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">300</div>
-    <div class="bg-red-500" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem; color:var(--setec-bg)">500</div>
-    <div class="bg-red-700" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">700</div>
-    <div class="bg-red-900" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">900</div>
+                <div
+                    class="bg-red-100"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    100
+                </div>
+                <div
+                    class="bg-red-300"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    300
+                </div>
+                <div
+                    class="bg-red-500"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                        color: var(--setec-bg);
+                    "
+                >
+                    500
+                </div>
+                <div
+                    class="bg-red-700"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    700
+                </div>
+                <div
+                    class="bg-red-900"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    900
+                </div>
 
-    <div class="bg-neutral-100" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">100</div>
-    <div class="bg-neutral-300" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">300</div>
-    <div class="bg-neutral-500" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem; color:var(--setec-bg)">500</div>
-    <div class="bg-neutral-700" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">700</div>
-    <div class="bg-neutral-900" style="height:2rem; display:flex; align-items:center; justify-content:center; font-size:0.7rem">900</div>
-  </div>
+                <div
+                    class="bg-neutral-100"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    100
+                </div>
+                <div
+                    class="bg-neutral-300"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    300
+                </div>
+                <div
+                    class="bg-neutral-500"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                        color: var(--setec-bg);
+                    "
+                >
+                    500
+                </div>
+                <div
+                    class="bg-neutral-700"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    700
+                </div>
+                <div
+                    class="bg-neutral-900"
+                    style="
+                        height: 2rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.7rem;
+                    "
+                >
+                    900
+                </div>
+            </div>
 
-  <div class="comment">// text color classes</div>
-  <div class="demo-row">
-    <span class="text-green">green</span>
-    <span class="text-cyan">cyan</span>
-    <span class="text-amber">amber</span>
-    <span class="text-purple">purple</span>
-    <span class="text-red">red</span>
-    <span class="text-muted">muted</span>
-    <span class="text-comment">comment</span>
-    <span class="text-error">error</span>
-    <span class="text-warning">warning</span>
-    <span class="text-success">success</span>
-  </div>
-</div>
+            <div class="comment">// text color classes</div>
+            <div class="demo-row">
+                <span class="text-green">green</span>
+                <span class="text-cyan">cyan</span>
+                <span class="text-amber">amber</span>
+                <span class="text-purple">purple</span>
+                <span class="text-red">red</span>
+                <span class="text-muted">muted</span>
+                <span class="text-comment">comment</span>
+                <span class="text-error">error</span>
+                <span class="text-warning">warning</span>
+                <span class="text-success">success</span>
+            </div>
+        </div>
 
-<!-- ══════════════════════════════════════════════════
+        <!-- ══════════════════════════════════════════════════
      BUTTONS
      ══════════════════════════════════════════════════ -->
-<div class="demo-section">
-  <h2>// buttons</h2>
+        <div class="demo-section">
+            <h2>// buttons</h2>
 
-  <div class="demo-row">
-    <button class="btn btn-primary">primary</button>
-    <button class="btn btn-secondary">secondary</button>
-    <button class="btn btn-danger">danger</button>
-    <button class="btn btn-ghost">ghost</button>
-    <button class="btn btn-ghost-primary">ghost primary</button>
-    <button class="btn btn-ghost-accent">ghost accent</button>
-    <button class="btn btn-back">back</button>
-  </div>
+            <div class="demo-row">
+                <button class="btn btn-primary">primary</button>
+                <button class="btn btn-secondary">secondary</button>
+                <button class="btn btn-danger">danger</button>
+                <button class="btn btn-ghost">ghost</button>
+                <button class="btn btn-ghost-primary">ghost primary</button>
+                <button class="btn btn-ghost-accent">ghost accent</button>
+                <button class="btn btn-back">back</button>
+            </div>
 
-  <div class="demo-row">
-    <button class="btn btn-primary" disabled>disabled</button>
-    <button class="btn btn-ghost is-disabled">disabled ghost</button>
-  </div>
+            <div class="demo-row">
+                <button class="btn btn-primary" disabled>disabled</button>
+                <button class="btn btn-ghost is-disabled">
+                    disabled ghost
+                </button>
+            </div>
 
-  <div class="comment">// form action bar (cancel / title / save)</div>
-  <div style="display:flex; justify-content:space-between; align-items:center; padding: 0.5rem 0; border-bottom: 1px solid var(--setec-border-subtle); border-top: 1px solid var(--setec-border-subtle); margin-top:0.5rem;">
-    <button class="btn btn-ghost">[cancel]</button>
-    <span class="prompt"><span class="prompt-dollar">$</span><span class="prompt-cmd">habit --edit</span></span>
-    <button class="btn btn-ghost-accent">[save]</button>
-  </div>
-</div>
+            <div class="comment">
+                // form action bar (cancel / title / save)
+            </div>
+            <div
+                style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0.5rem 0;
+                    border-bottom: 1px solid var(--setec-border-subtle);
+                    border-top: 1px solid var(--setec-border-subtle);
+                    margin-top: 0.5rem;
+                "
+            >
+                <button class="btn btn-ghost">[cancel]</button>
+                <span class="prompt"
+                    ><span class="prompt-dollar">$</span
+                    ><span class="prompt-cmd">habit --edit</span></span
+                >
+                <button class="btn btn-ghost-accent">[save]</button>
+            </div>
+        </div>
 
-<!-- ══════════════════════════════════════════════════
+        <!-- ══════════════════════════════════════════════════
      PILLS & BADGES
      ══════════════════════════════════════════════════ -->
-<div class="demo-section">
-  <h2>// pills &amp; badges</h2>
+        <div class="demo-section">
+            <h2>// pills &amp; badges</h2>
 
-  <div class="demo-row">
-    <span class="pill">inactive</span>
-    <span class="pill active">active</span>
-    <span class="pill-primary">primary</span>
-    <span class="pill-muted">muted</span>
-  </div>
+            <div class="demo-row">
+                <span class="pill">inactive</span>
+                <span class="pill active">active</span>
+                <span class="pill-primary">primary</span>
+                <span class="pill-muted">muted</span>
+            </div>
 
-  <div class="comment">// period filters</div>
-  <div class="period-filters mt-2">
-    <button class="period-filter">14d</button>
-    <button class="period-filter active">30d</button>
-    <button class="period-filter">60d</button>
-    <button class="period-filter">90d</button>
-    <button class="period-filter">180d</button>
-    <button class="period-filter">365d</button>
-    <button class="period-filter">all</button>
-  </div>
+            <div class="comment">// period filters</div>
+            <div class="period-filters mt-2">
+                <button class="period-filter">14d</button>
+                <button class="period-filter active">30d</button>
+                <button class="period-filter">60d</button>
+                <button class="period-filter">90d</button>
+                <button class="period-filter">180d</button>
+                <button class="period-filter">365d</button>
+                <button class="period-filter">all</button>
+            </div>
 
-  <div class="demo-row mt-3">
-    <span class="badge">3</span>
-    <span class="badge badge-primary">12</span>
-    <span class="badge badge-accent">🔥 5</span>
-    <span class="badge badge-muted">99+</span>
-    <span class="badge badge-error">!</span>
-  </div>
-</div>
+            <div class="demo-row mt-3">
+                <span class="badge">3</span>
+                <span class="badge badge-primary">12</span>
+                <span class="badge badge-accent">🔥 5</span>
+                <span class="badge badge-muted">99+</span>
+                <span class="badge badge-error">!</span>
+            </div>
+        </div>
 
-<!-- ══════════════════════════════════════════════════
+        <!-- ══════════════════════════════════════════════════
      FORM ELEMENTS
      ══════════════════════════════════════════════════ -->
-<div class="demo-section">
-  <h2>// forms</h2>
+        <div class="demo-section">
+            <h2>// forms</h2>
 
-  <div class="field mb-4">
-    <div class="field-label">name</div>
-    <div class="field-input-row">
-      <input class="field-input" type="text" value="Deep work block" placeholder="Enter name">
-      <span class="field-counter">15/50</span>
-    </div>
-    <div class="field-hint">// shown below habit name on habits screen</div>
-  </div>
+            <div class="field mb-4">
+                <div class="field-label">name</div>
+                <div class="field-input-row">
+                    <input
+                        class="field-input"
+                        type="text"
+                        value="Deep work block"
+                        placeholder="Enter name"
+                    />
+                    <span class="field-counter">15/50</span>
+                </div>
+                <div class="field-hint">
+                    // shown below habit name on habits screen
+                </div>
+            </div>
 
-  <div class="field mb-4">
-    <div class="field-label">description</div>
-    <div class="field-input-row">
-      <textarea class="field-textarea" placeholder="Optional description...">90 min each</textarea>
-      <span class="field-counter">11/30</span>
-    </div>
-  </div>
+            <div class="field mb-4">
+                <div class="field-label">description</div>
+                <div class="field-input-row">
+                    <textarea
+                        class="field-textarea"
+                        placeholder="Optional description..."
+                    >
+90 min each</textarea
+                    >
+                    <span class="field-counter">11/30</span>
+                </div>
+            </div>
 
-  <div class="field mb-4 is-error">
-    <div class="field-label">invalid field</div>
-    <input class="field-input" type="text" value="bad input">
-    <div class="field-hint">// this value is not valid</div>
-  </div>
+            <div class="field mb-4 is-error">
+                <div class="field-label">invalid field</div>
+                <input class="field-input" type="text" value="bad input" />
+                <div class="field-hint">// this value is not valid</div>
+            </div>
 
-  <div class="field mb-4 is-success">
-    <div class="field-label">valid field</div>
-    <input class="field-input" type="text" value="good input">
-    <div class="field-hint">// looks good</div>
-  </div>
+            <div class="field mb-4 is-success">
+                <div class="field-label">valid field</div>
+                <input class="field-input" type="text" value="good input" />
+                <div class="field-hint">// looks good</div>
+            </div>
 
-  <div class="field-section">
-    <div class="field-section-heading">⏰ schedule</div>
+            <div class="field-section">
+                <div class="field-section-heading">⏰ schedule</div>
 
-    <div class="period-filters">
-      <button class="period-filter">daily</button>
-      <button class="period-filter active">days</button>
-      <button class="period-filter">every X</button>
-      <button class="period-filter">monthly</button>
-    </div>
+                <div class="period-filters">
+                    <button class="period-filter">daily</button>
+                    <button class="period-filter active">days</button>
+                    <button class="period-filter">every X</button>
+                    <button class="period-filter">monthly</button>
+                </div>
 
-    <div class="day-picker">
-      <button class="day-btn active">M</button>
-      <button class="day-btn active">T</button>
-      <button class="day-btn active">W</button>
-      <button class="day-btn active">T</button>
-      <button class="day-btn active">F</button>
-      <button class="day-btn">S</button>
-      <button class="day-btn">S</button>
-    </div>
+                <div class="day-picker">
+                    <button class="day-btn active">M</button>
+                    <button class="day-btn active">T</button>
+                    <button class="day-btn active">W</button>
+                    <button class="day-btn active">T</button>
+                    <button class="day-btn active">F</button>
+                    <button class="day-btn">S</button>
+                    <button class="day-btn">S</button>
+                </div>
 
-    <div class="field-row">
-      <div class="field-row-label">
-        <span>every other week</span>
-        <span class="field-hint">// repeat biweekly instead of weekly</span>
-      </div>
-      <div class="field-row-control">
-        <span class="toggle" data-state="off">
-          <span class="toggle-off">off</span>
-          <span class="toggle-on">on</span>
-        </span>
-      </div>
-    </div>
+                <div class="field-row">
+                    <div class="field-row-label">
+                        <span>every other week</span>
+                        <span class="field-hint"
+                            >// repeat biweekly instead of weekly</span
+                        >
+                    </div>
+                    <div class="field-row-control">
+                        <span class="toggle" data-state="off">
+                            <span class="toggle-off">off</span>
+                            <span class="toggle-on">on</span>
+                        </span>
+                    </div>
+                </div>
 
-    <div class="field-row">
-      <div class="field-row-label">
-        <span>remind me</span>
-      </div>
-      <div class="field-row-control">
-        <span class="toggle" data-state="on">
-          <span class="toggle-off">off</span>
-          <span class="toggle-on">on</span>
-        </span>
-      </div>
-    </div>
-  </div>
+                <div class="field-row">
+                    <div class="field-row-label">
+                        <span>remind me</span>
+                    </div>
+                    <div class="field-row-control">
+                        <span class="toggle" data-state="on">
+                            <span class="toggle-off">off</span>
+                            <span class="toggle-on">on</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
 
-  <div class="field-section">
-    <div class="field-section-heading">📊 tracking</div>
+            <div class="field-section">
+                <div class="field-section-heading">📊 tracking</div>
 
-    <div class="field-row">
-      <div class="field-row-label">
-        <span>count</span>
-        <span class="field-hint">// tap to count, e.g. 8 glasses of water</span>
-      </div>
-      <div class="field-row-control">
-        <span class="toggle" data-state="on">
-          <span class="toggle-off">off</span>
-          <span class="toggle-on">on</span>
-        </span>
-      </div>
-    </div>
+                <div class="field-row">
+                    <div class="field-row-label">
+                        <span>count</span>
+                        <span class="field-hint"
+                            >// tap to count, e.g. 8 glasses of water</span
+                        >
+                    </div>
+                    <div class="field-row-control">
+                        <span class="toggle" data-state="on">
+                            <span class="toggle-off">off</span>
+                            <span class="toggle-on">on</span>
+                        </span>
+                    </div>
+                </div>
 
-    <div class="field-row">
-      <div class="field-row-label"><span>target</span></div>
-      <div class="field-row-control">
-        <div class="stepper">
-          <button class="stepper-dec">−</button>
-          <span class="stepper-value">3</span>
-          <button class="stepper-inc">+</button>
+                <div class="field-row">
+                    <div class="field-row-label"><span>target</span></div>
+                    <div class="field-row-control">
+                        <div class="stepper">
+                            <button class="stepper-dec">−</button>
+                            <span class="stepper-value">3</span>
+                            <button class="stepper-inc">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field-section">
+                <div class="field-section-heading">🎨 color</div>
+
+                <div class="field-row">
+                    <div class="field-row-label"><span>habit color</span></div>
+                    <div class="field-row-control">
+                        <span class="toggle" data-state="on">
+                            <span class="toggle-off">off</span>
+                            <span class="toggle-on">on</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="swatch-row mt-2">
+                    <div class="swatch swatch-red active"></div>
+                    <div class="swatch swatch-amber"></div>
+                    <div class="swatch swatch-yellow"></div>
+                    <div class="swatch swatch-green"></div>
+                    <div class="swatch swatch-cyan"></div>
+                    <div class="swatch swatch-purple"></div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="field-section">
-    <div class="field-section-heading">🎨 color</div>
-
-    <div class="field-row">
-      <div class="field-row-label"><span>habit color</span></div>
-      <div class="field-row-control">
-        <span class="toggle" data-state="on">
-          <span class="toggle-off">off</span>
-          <span class="toggle-on">on</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="swatch-row mt-2">
-      <div class="swatch swatch-red active"></div>
-      <div class="swatch swatch-amber"></div>
-      <div class="swatch swatch-yellow"></div>
-      <div class="swatch swatch-green"></div>
-      <div class="swatch swatch-cyan"></div>
-      <div class="swatch swatch-purple"></div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════
+        <!-- ══════════════════════════════════════════════════
      CHECKBOX ITEMS
      ══════════════════════════════════════════════════ -->
-<div class="demo-section">
-  <h2>// checklist items</h2>
+        <div class="demo-section">
+            <h2>// checklist items</h2>
 
-  <div style="display:flex; flex-direction:column; gap:0.5rem;">
-    <label class="checkbox is-checked">
-      <span class="checkbox-indicator"></span>
-      <span class="checkbox-text">Meditate <span class="badge badge-accent ml-2">🔥 2</span></span>
-    </label>
-    <label class="checkbox is-checked">
-      <span class="checkbox-indicator"></span>
-      <span class="checkbox-text text-cyan">Exercise</span>
-    </label>
-    <label class="checkbox">
-      <span class="checkbox-indicator"></span>
-      <span class="checkbox-text">Journal</span>
-    </label>
-    <label class="checkbox">
-      <span class="checkbox-indicator"></span>
-      <span class="checkbox-text text-muted">Healthy breakfast</span>
-    </label>
-  </div>
-</div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem">
+                <label class="checkbox is-checked">
+                    <span class="checkbox-indicator"></span>
+                    <span class="checkbox-text"
+                        >Meditate
+                        <span class="badge badge-accent ml-2">🔥 2</span></span
+                    >
+                </label>
+                <label class="checkbox is-checked">
+                    <span class="checkbox-indicator"></span>
+                    <span class="checkbox-text text-cyan">Exercise</span>
+                </label>
+                <label class="checkbox">
+                    <span class="checkbox-indicator"></span>
+                    <span class="checkbox-text">Journal</span>
+                </label>
+                <label class="checkbox">
+                    <span class="checkbox-indicator"></span>
+                    <span class="checkbox-text text-muted"
+                        >Healthy breakfast</span
+                    >
+                </label>
+            </div>
+        </div>
 
-<!-- ══════════════════════════════════════════════════
+        <!-- ══════════════════════════════════════════════════
      PROGRESS
      ══════════════════════════════════════════════════ -->
-<div class="demo-section">
-  <h2>// progress bars &amp; meters</h2>
+        <div class="demo-section">
+            <h2>// progress bars &amp; meters</h2>
 
-  <div class="comment">// progress bars</div>
-  <div class="progress-bar mb-3" style="--progress: 45%">
-    <div class="progress-bar-track">
-      <div class="progress-bar-fill"></div>
-    </div>
-    <div class="progress-bar-label">45%</div>
-  </div>
+            <div class="comment">// progress bars</div>
+            <div class="progress-bar mb-3" style="--progress: 45%">
+                <div class="progress-bar-track">
+                    <div class="progress-bar-fill"></div>
+                </div>
+                <div class="progress-bar-label">45%</div>
+            </div>
 
-  <div class="progress-bar progress-bar--primary mb-3" style="--progress: 72%">
-    <div class="progress-bar-track">
-      <div class="progress-bar-fill"></div>
-    </div>
-    <div class="progress-bar-label">72%</div>
-  </div>
+            <div
+                class="progress-bar progress-bar--primary mb-3"
+                style="--progress: 72%"
+            >
+                <div class="progress-bar-track">
+                    <div class="progress-bar-fill"></div>
+                </div>
+                <div class="progress-bar-label">72%</div>
+            </div>
 
-  <br>
-  <div class="comment">// segmented meters</div>
+            <br />
+            <div class="comment">// segmented meters</div>
 
-  <div class="meter mb-3">
-    <div class="meter-track">
-      <span class="meter-bracket-open"></span>
-      <div class="meter-segments">
-        <div class="meter-seg meter-seg--filled meter-seg--filled-secondary"></div>
-        <div class="meter-seg meter-seg--filled meter-seg--filled-secondary"></div>
-        <div class="meter-seg meter-seg--filled meter-seg--filled-secondary"></div>
-        <div class="meter-seg meter-seg--partial"></div>
-        <div class="meter-seg meter-seg--empty"></div>
-        <div class="meter-seg meter-seg--empty"></div>
-      </div>
-      <span class="meter-bracket-close"></span>
-    </div>
-    <div class="meter-meta">
-      <span class="meter-count">791/1,500</span>
-      <span class="meter-tier">gold → platinum <span class="meter-xp">+100 xp</span></span>
-    </div>
-  </div>
+            <div class="meter mb-3">
+                <div class="meter-track">
+                    <span class="meter-bracket-open"></span>
+                    <div class="meter-segments">
+                        <div
+                            class="meter-seg meter-seg--filled meter-seg--filled-secondary"
+                        ></div>
+                        <div
+                            class="meter-seg meter-seg--filled meter-seg--filled-secondary"
+                        ></div>
+                        <div
+                            class="meter-seg meter-seg--filled meter-seg--filled-secondary"
+                        ></div>
+                        <div class="meter-seg meter-seg--partial"></div>
+                        <div class="meter-seg meter-seg--empty"></div>
+                        <div class="meter-seg meter-seg--empty"></div>
+                    </div>
+                    <span class="meter-bracket-close"></span>
+                </div>
+                <div class="meter-meta">
+                    <span class="meter-count">791/1,500</span>
+                    <span class="meter-tier"
+                        >gold → platinum
+                        <span class="meter-xp">+100 xp</span></span
+                    >
+                </div>
+            </div>
 
-  <div class="meter mb-3">
-    <div class="meter-track">
-      <span class="meter-bracket-open"></span>
-      <div class="meter-segments">
-        <div class="meter-seg meter-seg--filled meter-seg--filled-secondary"></div>
-        <div class="meter-seg meter-seg--filled meter-seg--filled-secondary"></div>
-        <div class="meter-seg meter-seg--partial"></div>
-        <div class="meter-seg meter-seg--empty"></div>
-        <div class="meter-seg meter-seg--empty"></div>
-        <div class="meter-seg meter-seg--empty"></div>
-      </div>
-      <span class="meter-bracket-close"></span>
-    </div>
-    <div class="meter-meta">
-      <span class="meter-count">34/60</span>
-      <span class="meter-tier">silver → gold <span class="meter-xp">+50 xp</span></span>
-    </div>
-  </div>
-</div>
+            <div class="meter mb-3">
+                <div class="meter-track">
+                    <span class="meter-bracket-open"></span>
+                    <div class="meter-segments">
+                        <div
+                            class="meter-seg meter-seg--filled meter-seg--filled-secondary"
+                        ></div>
+                        <div
+                            class="meter-seg meter-seg--filled meter-seg--filled-secondary"
+                        ></div>
+                        <div class="meter-seg meter-seg--partial"></div>
+                        <div class="meter-seg meter-seg--empty"></div>
+                        <div class="meter-seg meter-seg--empty"></div>
+                        <div class="meter-seg meter-seg--empty"></div>
+                    </div>
+                    <span class="meter-bracket-close"></span>
+                </div>
+                <div class="meter-meta">
+                    <span class="meter-count">34/60</span>
+                    <span class="meter-tier"
+                        >silver → gold
+                        <span class="meter-xp">+50 xp</span></span
+                    >
+                </div>
+            </div>
+        </div>
 
-<!-- ══════════════════════════════════════════════════
+        <!-- ══════════════════════════════════════════════════
      CALENDAR
      ══════════════════════════════════════════════════ -->
-<div class="demo-section">
-  <h2>// calendar week</h2>
+        <div class="demo-section">
+            <h2>// calendar week</h2>
 
-  <div class="calendar-week">
-    <div class="cal-nav-row">
-      <button class="nav-arrow nav-arrow--prev"></button>
-      <div></div>
-      <button class="nav-arrow nav-arrow--next"></button>
-    </div>
-    <div class="cal-grid">
-      <div class="cal-day-header">Mon</div>
-      <div class="cal-day-header">Tue</div>
-      <div class="cal-day-header">Wed</div>
-      <div class="cal-day-header">Thu</div>
-      <div class="cal-day-header">Fri</div>
-      <div class="cal-day-header text-primary">Sat</div>
-      <div class="cal-day-header">Sun</div>
+            <div class="calendar-week">
+                <div class="cal-nav-row">
+                    <button class="nav-arrow nav-arrow--prev"></button>
+                    <div></div>
+                    <button class="nav-arrow nav-arrow--next"></button>
+                </div>
+                <div class="cal-grid">
+                    <div class="cal-day-header">Mon</div>
+                    <div class="cal-day-header">Tue</div>
+                    <div class="cal-day-header">Wed</div>
+                    <div class="cal-day-header">Thu</div>
+                    <div class="cal-day-header">Fri</div>
+                    <div class="cal-day-header text-primary">Sat</div>
+                    <div class="cal-day-header">Sun</div>
 
-      <div class="cal-day-col">
-        <div class="cal-day cal-day--active">16</div>
-        <div class="cal-activity cal-activity--partial"></div>
-      </div>
-      <div class="cal-day-col">
-        <div class="cal-day cal-day--active">17</div>
-        <div class="cal-activity cal-activity--amber"></div>
-      </div>
-      <div class="cal-day-col">
-        <div class="cal-day cal-day--active">18</div>
-        <div class="cal-activity cal-activity--green"></div>
-      </div>
-      <div class="cal-day-col">
-        <div class="cal-day cal-day--active">19</div>
-        <div class="cal-activity cal-activity--partial"></div>
-      </div>
-      <div class="cal-day-col">
-        <div class="cal-day cal-day--active">20</div>
-        <div class="cal-activity cal-activity--green"></div>
-      </div>
-      <div class="cal-day-col">
-        <div class="cal-day cal-day--today">*21</div>
-        <div class="cal-activity cal-activity--partial"></div>
-      </div>
-      <div class="cal-day-col">
-        <div class="cal-day cal-day--future">22</div>
-        <div class="cal-activity cal-activity--empty"></div>
-      </div>
-    </div>
-  </div>
-</div>
+                    <div class="cal-day-col">
+                        <div class="cal-day cal-day--active">16</div>
+                        <div class="cal-activity cal-activity--partial"></div>
+                    </div>
+                    <div class="cal-day-col">
+                        <div class="cal-day cal-day--active">17</div>
+                        <div class="cal-activity cal-activity--amber"></div>
+                    </div>
+                    <div class="cal-day-col">
+                        <div class="cal-day cal-day--active">18</div>
+                        <div class="cal-activity cal-activity--green"></div>
+                    </div>
+                    <div class="cal-day-col">
+                        <div class="cal-day cal-day--active">19</div>
+                        <div class="cal-activity cal-activity--partial"></div>
+                    </div>
+                    <div class="cal-day-col">
+                        <div class="cal-day cal-day--active">20</div>
+                        <div class="cal-activity cal-activity--green"></div>
+                    </div>
+                    <div class="cal-day-col">
+                        <div class="cal-day cal-day--today">*21</div>
+                        <div class="cal-activity cal-activity--partial"></div>
+                    </div>
+                    <div class="cal-day-col">
+                        <div class="cal-day cal-day--future">22</div>
+                        <div class="cal-activity cal-activity--empty"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<!-- ══════════════════════════════════════════════════
+        <!-- ══════════════════════════════════════════════════
      HEATMAP
      ══════════════════════════════════════════════════ -->
-<div class="demo-section">
-  <h2>// contribution heatmap</h2>
+        <div class="demo-section">
+            <h2>// contribution heatmap</h2>
 
-  <div class="heatmap">
-    <div class="heatmap-months">
-      <span class="heatmap-month-label">jan</span>
-      <span class="heatmap-month-label">feb</span>
-      <span class="heatmap-month-label">mar</span>
-    </div>
-    <div class="heatmap-rows">
-      <div class="heatmap-row">
-        <span class="heatmap-row-label">m</span>
-        <div class="heatmap-cell intensity-0"></div><div class="heatmap-cell intensity-0"></div><div class="heatmap-cell intensity-0"></div><div class="heatmap-cell intensity-0"></div>
-        <div class="heatmap-cell intensity-2"></div><div class="heatmap-cell intensity-3"></div><div class="heatmap-cell intensity-4"></div><div class="heatmap-cell intensity-3"></div><div class="heatmap-cell intensity-2"></div>
-        <div class="heatmap-cell intensity-3"></div><div class="heatmap-cell intensity-4"></div><div class="heatmap-cell intensity-2"></div><div class="heatmap-cell intensity-3"></div>
-      </div>
-      <div class="heatmap-row">
-        <span class="heatmap-row-label">w</span>
-        <div class="heatmap-cell intensity-1"></div><div class="heatmap-cell intensity-2"></div><div class="heatmap-cell intensity-0"></div><div class="heatmap-cell intensity-0"></div>
-        <div class="heatmap-cell intensity-3"></div><div class="heatmap-cell intensity-4"></div><div class="heatmap-cell intensity-3"></div><div class="heatmap-cell intensity-2"></div><div class="heatmap-cell intensity-3"></div>
-        <div class="heatmap-cell intensity-2"></div><div class="heatmap-cell intensity-3"></div><div class="heatmap-cell intensity-4"></div><div class="heatmap-cell intensity-1"></div>
-      </div>
-      <div class="heatmap-row">
-        <span class="heatmap-row-label">f</span>
-        <div class="heatmap-cell intensity-0"></div><div class="heatmap-cell intensity-1"></div><div class="heatmap-cell intensity-0"></div><div class="heatmap-cell intensity-0"></div>
-        <div class="heatmap-cell intensity-2"></div><div class="heatmap-cell intensity-3"></div><div class="heatmap-cell intensity-4"></div><div class="heatmap-cell intensity-3"></div><div class="heatmap-cell intensity-2"></div>
-        <div class="heatmap-cell intensity-1"></div><div class="heatmap-cell intensity-2"></div><div class="heatmap-cell intensity-3"></div><div class="heatmap-cell intensity-0"></div>
-      </div>
-    </div>
-    <div class="heatmap-legend">
-      <span>// less</span>
-      <div class="heatmap-legend-cells">
-        <div class="heatmap-legend-cell intensity-0 heatmap-cell"></div>
-        <div class="heatmap-legend-cell intensity-1 heatmap-cell"></div>
-        <div class="heatmap-legend-cell intensity-2 heatmap-cell"></div>
-        <div class="heatmap-legend-cell intensity-3 heatmap-cell"></div>
-        <div class="heatmap-legend-cell intensity-4 heatmap-cell"></div>
-      </div>
-      <span>more</span>
-    </div>
-  </div>
-</div>
+            <div class="heatmap">
+                <div class="heatmap-months">
+                    <span class="heatmap-month-label">jan</span>
+                    <span class="heatmap-month-label">feb</span>
+                    <span class="heatmap-month-label">mar</span>
+                </div>
+                <div class="heatmap-rows">
+                    <div class="heatmap-row">
+                        <span class="heatmap-row-label">m</span>
+                        <div class="heatmap-cell intensity-0"></div>
+                        <div class="heatmap-cell intensity-0"></div>
+                        <div class="heatmap-cell intensity-0"></div>
+                        <div class="heatmap-cell intensity-0"></div>
+                        <div class="heatmap-cell intensity-2"></div>
+                        <div class="heatmap-cell intensity-3"></div>
+                        <div class="heatmap-cell intensity-4"></div>
+                        <div class="heatmap-cell intensity-3"></div>
+                        <div class="heatmap-cell intensity-2"></div>
+                        <div class="heatmap-cell intensity-3"></div>
+                        <div class="heatmap-cell intensity-4"></div>
+                        <div class="heatmap-cell intensity-2"></div>
+                        <div class="heatmap-cell intensity-3"></div>
+                    </div>
+                    <div class="heatmap-row">
+                        <span class="heatmap-row-label">w</span>
+                        <div class="heatmap-cell intensity-1"></div>
+                        <div class="heatmap-cell intensity-2"></div>
+                        <div class="heatmap-cell intensity-0"></div>
+                        <div class="heatmap-cell intensity-0"></div>
+                        <div class="heatmap-cell intensity-3"></div>
+                        <div class="heatmap-cell intensity-4"></div>
+                        <div class="heatmap-cell intensity-3"></div>
+                        <div class="heatmap-cell intensity-2"></div>
+                        <div class="heatmap-cell intensity-3"></div>
+                        <div class="heatmap-cell intensity-2"></div>
+                        <div class="heatmap-cell intensity-3"></div>
+                        <div class="heatmap-cell intensity-4"></div>
+                        <div class="heatmap-cell intensity-1"></div>
+                    </div>
+                    <div class="heatmap-row">
+                        <span class="heatmap-row-label">f</span>
+                        <div class="heatmap-cell intensity-0"></div>
+                        <div class="heatmap-cell intensity-1"></div>
+                        <div class="heatmap-cell intensity-0"></div>
+                        <div class="heatmap-cell intensity-0"></div>
+                        <div class="heatmap-cell intensity-2"></div>
+                        <div class="heatmap-cell intensity-3"></div>
+                        <div class="heatmap-cell intensity-4"></div>
+                        <div class="heatmap-cell intensity-3"></div>
+                        <div class="heatmap-cell intensity-2"></div>
+                        <div class="heatmap-cell intensity-1"></div>
+                        <div class="heatmap-cell intensity-2"></div>
+                        <div class="heatmap-cell intensity-3"></div>
+                        <div class="heatmap-cell intensity-0"></div>
+                    </div>
+                </div>
+                <div class="heatmap-legend">
+                    <span>// less</span>
+                    <div class="heatmap-legend-cells">
+                        <div
+                            class="heatmap-legend-cell intensity-0 heatmap-cell"
+                        ></div>
+                        <div
+                            class="heatmap-legend-cell intensity-1 heatmap-cell"
+                        ></div>
+                        <div
+                            class="heatmap-legend-cell intensity-2 heatmap-cell"
+                        ></div>
+                        <div
+                            class="heatmap-legend-cell intensity-3 heatmap-cell"
+                        ></div>
+                        <div
+                            class="heatmap-legend-cell intensity-4 heatmap-cell"
+                        ></div>
+                    </div>
+                    <span>more</span>
+                </div>
+            </div>
+        </div>
 
-<!-- ══════════════════════════════════════════════════
+        <!-- ══════════════════════════════════════════════════
      BAR CHART
      ══════════════════════════════════════════════════ -->
-<div class="demo-section">
-  <h2>// horizontal bar chart</h2>
+        <div class="demo-section">
+            <h2>// horizontal bar chart</h2>
 
-  <div class="bar-chart">
-    <div class="bar-chart-row">
-      <span class="bar-chart-label">mo</span>
-      <div class="bar-chart-track"><div class="bar-chart-fill" style="--bar-width:35%"></div></div>
-      <span class="bar-chart-value">35%</span>
-    </div>
-    <div class="bar-chart-row">
-      <span class="bar-chart-label">tu</span>
-      <div class="bar-chart-track"><div class="bar-chart-fill" style="--bar-width:31%"></div></div>
-      <span class="bar-chart-value">31%</span>
-    </div>
-    <div class="bar-chart-row">
-      <span class="bar-chart-label">we</span>
-      <div class="bar-chart-track"><div class="bar-chart-fill" style="--bar-width:39%"></div></div>
-      <span class="bar-chart-value">39%</span>
-    </div>
-    <div class="bar-chart-row">
-      <span class="bar-chart-label">th</span>
-      <div class="bar-chart-track"><div class="bar-chart-fill" style="--bar-width:32%"></div></div>
-      <span class="bar-chart-value">32%</span>
-    </div>
-    <div class="bar-chart-row">
-      <span class="bar-chart-label">fr</span>
-      <div class="bar-chart-track"><div class="bar-chart-fill" style="--bar-width:48%"></div></div>
-      <span class="bar-chart-value">48%</span>
-    </div>
-  </div>
-</div>
+            <div class="bar-chart">
+                <div class="bar-chart-row">
+                    <span class="bar-chart-label">mo</span>
+                    <div class="bar-chart-track">
+                        <div
+                            class="bar-chart-fill"
+                            style="--bar-width: 35%"
+                        ></div>
+                    </div>
+                    <span class="bar-chart-value">35%</span>
+                </div>
+                <div class="bar-chart-row">
+                    <span class="bar-chart-label">tu</span>
+                    <div class="bar-chart-track">
+                        <div
+                            class="bar-chart-fill"
+                            style="--bar-width: 31%"
+                        ></div>
+                    </div>
+                    <span class="bar-chart-value">31%</span>
+                </div>
+                <div class="bar-chart-row">
+                    <span class="bar-chart-label">we</span>
+                    <div class="bar-chart-track">
+                        <div
+                            class="bar-chart-fill"
+                            style="--bar-width: 39%"
+                        ></div>
+                    </div>
+                    <span class="bar-chart-value">39%</span>
+                </div>
+                <div class="bar-chart-row">
+                    <span class="bar-chart-label">th</span>
+                    <div class="bar-chart-track">
+                        <div
+                            class="bar-chart-fill"
+                            style="--bar-width: 32%"
+                        ></div>
+                    </div>
+                    <span class="bar-chart-value">32%</span>
+                </div>
+                <div class="bar-chart-row">
+                    <span class="bar-chart-label">fr</span>
+                    <div class="bar-chart-track">
+                        <div
+                            class="bar-chart-fill"
+                            style="--bar-width: 48%"
+                        ></div>
+                    </div>
+                    <span class="bar-chart-value">48%</span>
+                </div>
+            </div>
+        </div>
 
-<!-- ══════════════════════════════════════════════════
+        <!-- ══════════════════════════════════════════════════
      STATS
      ══════════════════════════════════════════════════ -->
-<div class="demo-section">
-  <h2>// stats</h2>
+        <div class="demo-section">
+            <h2>// stats</h2>
 
-  <div class="stat-section">
-    <div class="stat-section-heading">👁 quick glance</div>
-    <div class="comment">// your overall tracking summary</div>
-    <div class="stat-row"><span class="stat-row-label">days tracked</span><span class="stat-value">61</span></div>
-    <div class="stat-row"><span class="stat-row-label">avg completion</span><span class="stat-value">63%</span></div>
-    <div class="stat-row"><span class="stat-row-label">perfect days</span><span class="stat-value">32</span></div>
-  </div>
+            <div class="stat-section">
+                <div class="stat-section-heading">👁 quick glance</div>
+                <div class="comment">// your overall tracking summary</div>
+                <div class="stat-row">
+                    <span class="stat-row-label">days tracked</span
+                    ><span class="stat-value">61</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-row-label">avg completion</span
+                    ><span class="stat-value">63%</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-row-label">perfect days</span
+                    ><span class="stat-value">32</span>
+                </div>
+            </div>
 
-  <div class="stat-section">
-    <div class="stat-section-heading">🔥 streaks</div>
-    <div class="comment">// consecutive days hitting your daily goal</div>
-    <div class="stat-row"><span class="stat-row-label">current streak</span><span class="stat-value stat-value--muted">0 days</span></div>
-    <div class="stat-row"><span class="stat-row-label">best streak</span><span class="stat-value stat-value--muted">0 days</span></div>
-  </div>
+            <div class="stat-section">
+                <div class="stat-section-heading">🔥 streaks</div>
+                <div class="comment">
+                    // consecutive days hitting your daily goal
+                </div>
+                <div class="stat-row">
+                    <span class="stat-row-label">current streak</span
+                    ><span class="stat-value stat-value--muted">0 days</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-row-label">best streak</span
+                    ><span class="stat-value stat-value--muted">0 days</span>
+                </div>
+            </div>
 
-  <div class="stat-section">
-    <div class="stat-section-heading">📊 completion rates</div>
-    <div class="period-filters mb-2">
-      <button class="period-filter">14d</button>
-      <button class="period-filter active">30d</button>
-      <button class="period-filter">60d</button>
-      <button class="period-filter">90d</button>
-    </div>
-    <div class="stat-row">
-      <span class="stat-row-label">30d</span>
-      <span class="stat-value">35%</span>
-      <span class="trend-down">8%</span>
-    </div>
-    <div class="stat-row"><span class="stat-row-label">all time</span><span class="stat-value">40%</span></div>
-    <div class="stat-row"><span class="stat-row-label">green days</span><span class="stat-value">32/61</span></div>
-  </div>
-</div>
+            <div class="stat-section">
+                <div class="stat-section-heading">📊 completion rates</div>
+                <div class="period-filters mb-2">
+                    <button class="period-filter">14d</button>
+                    <button class="period-filter active">30d</button>
+                    <button class="period-filter">60d</button>
+                    <button class="period-filter">90d</button>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-row-label">30d</span>
+                    <span class="stat-value">35%</span>
+                    <span class="trend-down">8%</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-row-label">all time</span
+                    ><span class="stat-value">40%</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-row-label">green days</span
+                    ><span class="stat-value">32/61</span>
+                </div>
+            </div>
+        </div>
 
-<!-- ══════════════════════════════════════════════════
+        <!-- ══════════════════════════════════════════════════
      STATES
      ══════════════════════════════════════════════════ -->
-<div class="demo-section">
-  <h2>// states</h2>
+        <div class="demo-section">
+            <h2>// states</h2>
 
-  <div class="demo-row" style="gap:1.5rem">
-    <div class="field is-error">
-      <div class="field-label">error</div>
-      <input class="field-input" value="invalid" tabindex="0">
-      <div class="field-hint">// error message here</div>
-    </div>
-    <div class="field is-warning">
-      <div class="field-label">warning</div>
-      <input class="field-input" value="check this">
-      <div class="field-hint">// warning message here</div>
-    </div>
-    <div class="field is-success">
-      <div class="field-label">success</div>
-      <input class="field-input" value="valid input">
-      <div class="field-hint">// all good</div>
-    </div>
-  </div>
+            <div class="demo-row" style="gap: 1.5rem">
+                <div class="field is-error">
+                    <div class="field-label">error</div>
+                    <input class="field-input" value="invalid" tabindex="0" />
+                    <div class="field-hint">// error message here</div>
+                </div>
+                <div class="field is-warning">
+                    <div class="field-label">warning</div>
+                    <input class="field-input" value="check this" />
+                    <div class="field-hint">// warning message here</div>
+                </div>
+                <div class="field is-success">
+                    <div class="field-label">success</div>
+                    <input class="field-input" value="valid input" />
+                    <div class="field-hint">// all good</div>
+                </div>
+            </div>
 
-  <div class="demo-row mt-3">
-    <button class="btn btn-primary is-disabled">disabled</button>
-    <input class="field-input" disabled value="disabled input" style="width:auto">
-  </div>
+            <div class="demo-row mt-3">
+                <button class="btn btn-primary is-disabled">disabled</button>
+                <input
+                    class="field-input"
+                    disabled
+                    value="disabled input"
+                    style="width: auto"
+                />
+            </div>
 
-  <div class="comment mt-3">// tab into any input below to see the focus ring</div>
-  <div class="demo-row mt-2">
-    <input class="field-input" placeholder="focus me" style="width:200px">
-    <button class="btn btn-ghost">focus me too</button>
-  </div>
-</div>
+            <div class="comment mt-3">
+                // tab into any input below to see the focus ring
+            </div>
+            <div class="demo-row mt-2">
+                <input
+                    class="field-input"
+                    placeholder="focus me"
+                    style="width: 200px"
+                />
+                <button class="btn btn-ghost">focus me too</button>
+            </div>
+        </div>
 
-<!-- ══════════════════════════════════════════════════
+        <!-- ══════════════════════════════════════════════════
      STATUS BAR
      ══════════════════════════════════════════════════ -->
-<div class="demo-section">
-  <h2>// status bar</h2>
-  <div class="status-bar" style="border:1px solid var(--setec-border);">
-    <span class="status-bar-time">19:09</span>
-    <div class="status-bar-icons">
-      <span>📵</span>
-      <span>▄▄▄</span>
-      <span>WiFi</span>
-      <span class="badge">60</span>
-    </div>
-  </div>
-</div>
+        <div class="demo-section">
+            <h2>// status bar</h2>
+            <div
+                class="status-bar"
+                style="border: 1px solid var(--setec-border)"
+            >
+                <span class="status-bar-time">19:09</span>
+                <div class="status-bar-icons">
+                    <span>📵</span>
+                    <span>▄▄▄</span>
+                    <span>WiFi</span>
+                    <span class="badge">60</span>
+                </div>
+            </div>
+        </div>
 
-<script>
-  const slider = document.getElementById('contrast-slider');
-  const val = document.getElementById('contrast-val');
-  slider.addEventListener('input', () => {
-    document.documentElement.style.setProperty('--setec-contrast', slider.value);
-    val.textContent = slider.value;
-  });
+        <script>
+            const slider = document.getElementById("contrast-slider");
+            const val = document.getElementById("contrast-val");
+            slider.addEventListener("input", () => {
+                document.documentElement.style.setProperty(
+                    "--setec-contrast",
+                    slider.value,
+                );
+                val.textContent = slider.value;
+            });
 
-  // Section header collapse toggle
-  document.querySelectorAll('.section-header').forEach(header => {
-    header.addEventListener('click', () => {
-      header.classList.toggle('collapsed');
-    });
-  });
+            // Section header collapse toggle
+            document.querySelectorAll(".section-header").forEach((header) => {
+                header.addEventListener("click", () => {
+                    header.classList.toggle("collapsed");
+                });
+            });
 
-  // Toggle demo
-  document.querySelectorAll('.toggle').forEach(toggle => {
-    toggle.addEventListener('click', () => {
-      toggle.dataset.state = toggle.dataset.state === 'on' ? 'off' : 'on';
-    });
-  });
+            // Toggle demo
+            document.querySelectorAll(".toggle").forEach((toggle) => {
+                toggle.addEventListener("click", () => {
+                    toggle.dataset.state =
+                        toggle.dataset.state === "on" ? "off" : "on";
+                });
+            });
 
-  // Checkbox toggle
-  document.querySelectorAll('.checkbox').forEach(cb => {
-    cb.addEventListener('click', () => {
-      cb.classList.toggle('is-checked');
-    });
-  });
-</script>
-
-</body>
+            // Checkbox toggle
+            document.querySelectorAll(".checkbox").forEach((cb) => {
+                cb.addEventListener("click", () => {
+                    cb.classList.toggle("is-checked");
+                });
+            });
+        </script>
+    </body>
 </html>
