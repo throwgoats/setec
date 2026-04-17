@@ -4,7 +4,7 @@
   "description": "SETEC — a class-based CSS style library with 1980s terminal aesthetic and modern wide-gamut OKLCH colors.",
   "style": "dist/setec.css",
   "scripts": {
-    "build": "postcss src/index.css -o dist/setec.css && postcss src/index.css -o dist/setec.min.css --env production",
+    "build": "postcss src/index.css -o dist/setec.css && postcss src/index.css -o dist/setec.min.css --env production && cp dist/setec.css docs/setec.css",
     "watch": "postcss src/index.css -o dist/setec.css --watch"
   },
   "keywords": ["css", "terminal", "dark-theme", "oklch"],

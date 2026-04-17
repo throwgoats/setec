@@ -1,0 +1,2286 @@
+/* SETEC — class-based CSS library with terminal aesthetic */
+
+/* Base */
+
+/* ============================================================
+   SETEC — Root tokens
+   --setec-contrast: 1–100 (default 80)
+     100 = full cyberpunk neon (P3 wide-gamut)
+      40 = muted earth tones
+   ============================================================ */
+
+:root {
+  /* ── Master contrast knob ── */
+  --setec-contrast: 80;
+  --setec-c: calc(var(--setec-contrast) / 100);
+
+  /* ── Hue angles ── */
+  --setec-green-h:   142;
+  --setec-cyan-h:    196;
+  --setec-amber-h:    72;
+  --setec-purple-h:  295;
+  --setec-red-h:      25;
+  --setec-neutral-h: 240;
+
+  /* ── Green shades ── */
+  --setec-green-100: oklch(calc(0.88 + 0.06 * var(--setec-c)) calc(0.08 * var(--setec-c)) var(--setec-green-h));
+  --setec-green-300: oklch(calc(0.74 + 0.08 * var(--setec-c)) calc(0.22 * var(--setec-c)) var(--setec-green-h));
+  --setec-green-500: oklch(calc(0.55 + 0.15 * var(--setec-c)) calc(0.35 * var(--setec-c)) var(--setec-green-h));
+  --setec-green-700: oklch(calc(0.38 + 0.10 * var(--setec-c)) calc(0.24 * var(--setec-c)) var(--setec-green-h));
+  --setec-green-900: oklch(calc(0.22 + 0.06 * var(--setec-c)) calc(0.12 * var(--setec-c)) var(--setec-green-h));
+
+  /* ── Cyan shades ── */
+  --setec-cyan-100: oklch(calc(0.90 + 0.05 * var(--setec-c)) calc(0.06 * var(--setec-c)) var(--setec-cyan-h));
+  --setec-cyan-300: oklch(calc(0.76 + 0.07 * var(--setec-c)) calc(0.16 * var(--setec-c)) var(--setec-cyan-h));
+  --setec-cyan-500: oklch(calc(0.58 + 0.14 * var(--setec-c)) calc(0.22 * var(--setec-c)) var(--setec-cyan-h));
+  --setec-cyan-700: oklch(calc(0.40 + 0.10 * var(--setec-c)) calc(0.15 * var(--setec-c)) var(--setec-cyan-h));
+  --setec-cyan-900: oklch(calc(0.22 + 0.06 * var(--setec-c)) calc(0.08 * var(--setec-c)) var(--setec-cyan-h));
+
+  /* ── Amber shades ── */
+  --setec-amber-100: oklch(calc(0.92 + 0.04 * var(--setec-c)) calc(0.06 * var(--setec-c)) var(--setec-amber-h));
+  --setec-amber-300: oklch(calc(0.80 + 0.06 * var(--setec-c)) calc(0.14 * var(--setec-c)) var(--setec-amber-h));
+  --setec-amber-500: oklch(calc(0.68 + 0.10 * var(--setec-c)) calc(0.18 * var(--setec-c)) var(--setec-amber-h));
+  --setec-amber-700: oklch(calc(0.48 + 0.10 * var(--setec-c)) calc(0.14 * var(--setec-c)) var(--setec-amber-h));
+  --setec-amber-900: oklch(calc(0.26 + 0.06 * var(--setec-c)) calc(0.08 * var(--setec-c)) var(--setec-amber-h));
+
+  /* ── Purple shades ── */
+  --setec-purple-100: oklch(calc(0.88 + 0.06 * var(--setec-c)) calc(0.06 * var(--setec-c)) var(--setec-purple-h));
+  --setec-purple-300: oklch(calc(0.72 + 0.08 * var(--setec-c)) calc(0.16 * var(--setec-c)) var(--setec-purple-h));
+  --setec-purple-500: oklch(calc(0.55 + 0.12 * var(--setec-c)) calc(0.28 * var(--setec-c)) var(--setec-purple-h));
+  --setec-purple-700: oklch(calc(0.38 + 0.10 * var(--setec-c)) calc(0.20 * var(--setec-c)) var(--setec-purple-h));
+  --setec-purple-900: oklch(calc(0.22 + 0.06 * var(--setec-c)) calc(0.10 * var(--setec-c)) var(--setec-purple-h));
+
+  /* ── Red shades ── */
+  --setec-red-100: oklch(calc(0.88 + 0.06 * var(--setec-c)) calc(0.06 * var(--setec-c)) var(--setec-red-h));
+  --setec-red-300: oklch(calc(0.72 + 0.08 * var(--setec-c)) calc(0.18 * var(--setec-c)) var(--setec-red-h));
+  --setec-red-500: oklch(calc(0.55 + 0.12 * var(--setec-c)) calc(0.28 * var(--setec-c)) var(--setec-red-h));
+  --setec-red-700: oklch(calc(0.38 + 0.10 * var(--setec-c)) calc(0.20 * var(--setec-c)) var(--setec-red-h));
+  --setec-red-900: oklch(calc(0.22 + 0.06 * var(--setec-c)) calc(0.10 * var(--setec-c)) var(--setec-red-h));
+
+  /* ── Neutral shades (near-zero chroma) ── */
+  --setec-neutral-100: oklch(0.88 0.008 var(--setec-neutral-h));
+  --setec-neutral-300: oklch(0.68 0.008 var(--setec-neutral-h));
+  --setec-neutral-500: oklch(0.48 0.006 var(--setec-neutral-h));
+  --setec-neutral-700: oklch(0.30 0.005 var(--setec-neutral-h));
+  --setec-neutral-900: oklch(0.16 0.004 var(--setec-neutral-h));
+
+  /* ── Semantic color aliases ── */
+  --setec-color-primary:   var(--setec-green-500);
+  --setec-color-secondary: var(--setec-cyan-500);
+  --setec-color-accent:    var(--setec-amber-500);
+  --setec-color-error:     var(--setec-red-500);
+  --setec-color-warning:   var(--setec-amber-300);
+  --setec-color-success:   var(--setec-green-300);
+  --setec-color-muted:     var(--setec-neutral-500);
+  --setec-color-comment:   var(--setec-neutral-500);
+  --setec-color-text:      var(--setec-neutral-100);
+
+  /* ── Surfaces ── */
+  --setec-bg:             oklch(0.11 0.010 var(--setec-neutral-h));
+  --setec-bg-raised:      oklch(0.15 0.010 var(--setec-neutral-h));
+  --setec-bg-input:       oklch(0.18 0.010 var(--setec-neutral-h));
+  --setec-bg-hover:       oklch(0.20 0.012 var(--setec-neutral-h));
+  --setec-border:         oklch(0.28 0.010 var(--setec-neutral-h));
+  --setec-border-subtle:  oklch(0.22 0.008 var(--setec-neutral-h));
+
+  /* ── Focus ring ── */
+  --setec-focus-ring: var(--setec-cyan-500);
+
+  /* ── Typography ── */
+  --setec-font-jetbrains: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+  --setec-font-hack:      "Hack Nerd Font", "Hack", monospace;
+  --setec-font-iosevka:   "Iosevka Nerd Font", "Iosevka", monospace;
+  --setec-font-default:   var(--setec-font-jetbrains);
+
+  /* ── Spacing scale (4px base) ── */
+  --setec-space-1:  4px;
+  --setec-space-2:  8px;
+  --setec-space-3:  12px;
+  --setec-space-4:  16px;
+  --setec-space-6:  24px;
+  --setec-space-8:  32px;
+  --setec-space-12: 48px;
+  --setec-space-16: 64px;
+
+  /* ── Checkered pattern (for empty/inactive states) ── */
+  --setec-checkered: repeating-linear-gradient(
+    45deg,
+    oklch(0.22 0.008 var(--setec-neutral-h)) 0px,
+    oklch(0.22 0.008 var(--setec-neutral-h)) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+}
+
+/* Light theme stub — override surfaces only, colors TBD */
+
+.light {
+  --setec-bg:            oklch(0.97 0.005 var(--setec-neutral-h));
+  --setec-bg-raised:     oklch(0.92 0.005 var(--setec-neutral-h));
+  --setec-bg-input:      oklch(0.88 0.005 var(--setec-neutral-h));
+  --setec-bg-hover:      oklch(0.85 0.006 var(--setec-neutral-h));
+  --setec-border:        oklch(0.70 0.008 var(--setec-neutral-h));
+  --setec-border-subtle: oklch(0.80 0.006 var(--setec-neutral-h));
+  --setec-color-text:    oklch(0.18 0.010 var(--setec-neutral-h));
+}
+
+/* SETEC — Minimal reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  border: 0 solid var(--setec-border);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* SETEC — Base html/body defaults */
+
+html {
+  font-size: 14px;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 2;
+    -o-tab-size: 2;
+       tab-size: 2;
+}
+
+body {
+  font-family: var(--setec-font-default);
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: var(--setec-bg);
+  color: var(--setec-color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default focus outline — replaced by states.css */
+
+:focus {
+  outline: none;
+}
+
+/* Typography */
+
+/* SETEC — Nerd Font @font-face declarations
+   woff2 files are expected in /fonts/
+   Fonts can also be loaded from nerdfonts.com CDN or locally installed.
+   If using system-installed Nerdfonts, these @font-face blocks are not required. */
+
+/* JetBrainsMono Nerd Font — default */
+
+@font-face {
+  font-family: "JetBrainsMono Nerd Font";
+  src: url("../fonts/JetBrainsMonoNerdFont-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrainsMono Nerd Font";
+  src: url("../fonts/JetBrainsMonoNerdFont-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Hack Nerd Font */
+
+@font-face {
+  font-family: "Hack Nerd Font";
+  src: url("../fonts/HackNerdFont-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hack Nerd Font";
+  src: url("../fonts/HackNerdFont-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Iosevka Nerd Font */
+
+@font-face {
+  font-family: "Iosevka Nerd Font";
+  src: url("../fonts/IosevkaNerdFont-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Iosevka Nerd Font";
+  src: url("../fonts/IosevkaNerdFont-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SETEC — Typography utilities */
+
+/* Font family */
+
+.font-jetbrains { font-family: var(--setec-font-jetbrains); }
+
+.font-hack      { font-family: var(--setec-font-hack); }
+
+.font-iosevka   { font-family: var(--setec-font-iosevka); }
+
+/* Weight */
+
+.font-normal { font-weight: 400; }
+
+.font-bold   { font-weight: 700; }
+
+/* Headers — same size as body, distinguished by bold + color */
+
+.heading {
+  font-weight: 700;
+  color: var(--setec-color-text);
+  line-height: 1.3;
+}
+
+.heading-primary   { font-weight: 700; color: var(--setec-color-primary); line-height: 1.3; }
+
+.heading-secondary { font-weight: 700; color: var(--setec-color-secondary); line-height: 1.3; }
+
+.heading-accent    { font-weight: 700; color: var(--setec-color-accent); line-height: 1.3; }
+
+.heading-muted     { font-weight: 700; color: var(--setec-color-muted); line-height: 1.3; }
+
+/* Paragraph */
+
+.paragraph {
+  color: var(--setec-color-text);
+  line-height: 1.6;
+}
+
+/* Comment — mimics // code comment style */
+
+.comment {
+  color: var(--setec-color-comment);
+  line-height: 1.4;
+}
+
+/* Muted / secondary text */
+
+.text-muted { color: var(--setec-color-muted); }
+
+/* Inline code / terminal value */
+
+.text-mono { font-family: var(--setec-font-default); }
+
+/* Colors */
+
+/* SETEC — Color utility classes
+   Pattern: .text-{hue}, .text-{hue}-{shade}, .bg-{hue}, .bg-{hue}-{shade}, .border-{hue}
+   Shades: 100 (lightest) → 900 (darkest) */
+
+/* ── Text colors ── */
+
+/* Green */
+
+.text-green     { color: var(--setec-green-500); }
+
+.text-green-100 { color: var(--setec-green-100); }
+
+.text-green-300 { color: var(--setec-green-300); }
+
+.text-green-500 { color: var(--setec-green-500); }
+
+.text-green-700 { color: var(--setec-green-700); }
+
+.text-green-900 { color: var(--setec-green-900); }
+
+/* Cyan */
+
+.text-cyan     { color: var(--setec-cyan-500); }
+
+.text-cyan-100 { color: var(--setec-cyan-100); }
+
+.text-cyan-300 { color: var(--setec-cyan-300); }
+
+.text-cyan-500 { color: var(--setec-cyan-500); }
+
+.text-cyan-700 { color: var(--setec-cyan-700); }
+
+.text-cyan-900 { color: var(--setec-cyan-900); }
+
+/* Amber */
+
+.text-amber     { color: var(--setec-amber-500); }
+
+.text-amber-100 { color: var(--setec-amber-100); }
+
+.text-amber-300 { color: var(--setec-amber-300); }
+
+.text-amber-500 { color: var(--setec-amber-500); }
+
+.text-amber-700 { color: var(--setec-amber-700); }
+
+.text-amber-900 { color: var(--setec-amber-900); }
+
+/* Purple */
+
+.text-purple     { color: var(--setec-purple-500); }
+
+.text-purple-100 { color: var(--setec-purple-100); }
+
+.text-purple-300 { color: var(--setec-purple-300); }
+
+.text-purple-500 { color: var(--setec-purple-500); }
+
+.text-purple-700 { color: var(--setec-purple-700); }
+
+.text-purple-900 { color: var(--setec-purple-900); }
+
+/* Red */
+
+.text-red     { color: var(--setec-red-500); }
+
+.text-red-100 { color: var(--setec-red-100); }
+
+.text-red-300 { color: var(--setec-red-300); }
+
+.text-red-500 { color: var(--setec-red-500); }
+
+.text-red-700 { color: var(--setec-red-700); }
+
+.text-red-900 { color: var(--setec-red-900); }
+
+/* Neutral */
+
+.text-neutral     { color: var(--setec-neutral-500); }
+
+.text-neutral-100 { color: var(--setec-neutral-100); }
+
+.text-neutral-300 { color: var(--setec-neutral-300); }
+
+.text-neutral-500 { color: var(--setec-neutral-500); }
+
+.text-neutral-700 { color: var(--setec-neutral-700); }
+
+.text-neutral-900 { color: var(--setec-neutral-900); }
+
+/* Semantic text */
+
+.text-primary   { color: var(--setec-color-primary); }
+
+.text-secondary { color: var(--setec-color-secondary); }
+
+.text-accent    { color: var(--setec-color-accent); }
+
+.text-error     { color: var(--setec-color-error); }
+
+.text-warning   { color: var(--setec-color-warning); }
+
+.text-success   { color: var(--setec-color-success); }
+
+.text-comment   { color: var(--setec-color-comment); }
+
+.text-base      { color: var(--setec-color-text); }
+
+/* ── Background colors ── */
+
+/* Green */
+
+.bg-green     { background-color: var(--setec-green-500); }
+
+.bg-green-100 { background-color: var(--setec-green-100); }
+
+.bg-green-300 { background-color: var(--setec-green-300); }
+
+.bg-green-500 { background-color: var(--setec-green-500); }
+
+.bg-green-700 { background-color: var(--setec-green-700); }
+
+.bg-green-900 { background-color: var(--setec-green-900); }
+
+/* Cyan */
+
+.bg-cyan     { background-color: var(--setec-cyan-500); }
+
+.bg-cyan-100 { background-color: var(--setec-cyan-100); }
+
+.bg-cyan-300 { background-color: var(--setec-cyan-300); }
+
+.bg-cyan-500 { background-color: var(--setec-cyan-500); }
+
+.bg-cyan-700 { background-color: var(--setec-cyan-700); }
+
+.bg-cyan-900 { background-color: var(--setec-cyan-900); }
+
+/* Amber */
+
+.bg-amber     { background-color: var(--setec-amber-500); }
+
+.bg-amber-100 { background-color: var(--setec-amber-100); }
+
+.bg-amber-300 { background-color: var(--setec-amber-300); }
+
+.bg-amber-500 { background-color: var(--setec-amber-500); }
+
+.bg-amber-700 { background-color: var(--setec-amber-700); }
+
+.bg-amber-900 { background-color: var(--setec-amber-900); }
+
+/* Purple */
+
+.bg-purple     { background-color: var(--setec-purple-500); }
+
+.bg-purple-100 { background-color: var(--setec-purple-100); }
+
+.bg-purple-300 { background-color: var(--setec-purple-300); }
+
+.bg-purple-500 { background-color: var(--setec-purple-500); }
+
+.bg-purple-700 { background-color: var(--setec-purple-700); }
+
+.bg-purple-900 { background-color: var(--setec-purple-900); }
+
+/* Red */
+
+.bg-red     { background-color: var(--setec-red-500); }
+
+.bg-red-100 { background-color: var(--setec-red-100); }
+
+.bg-red-300 { background-color: var(--setec-red-300); }
+
+.bg-red-500 { background-color: var(--setec-red-500); }
+
+.bg-red-700 { background-color: var(--setec-red-700); }
+
+.bg-red-900 { background-color: var(--setec-red-900); }
+
+/* Neutral */
+
+.bg-neutral     { background-color: var(--setec-neutral-500); }
+
+.bg-neutral-100 { background-color: var(--setec-neutral-100); }
+
+.bg-neutral-300 { background-color: var(--setec-neutral-300); }
+
+.bg-neutral-500 { background-color: var(--setec-neutral-500); }
+
+.bg-neutral-700 { background-color: var(--setec-neutral-700); }
+
+.bg-neutral-900 { background-color: var(--setec-neutral-900); }
+
+/* Semantic backgrounds */
+
+.bg-surface       { background-color: var(--setec-bg); }
+
+.bg-surface-raised { background-color: var(--setec-bg-raised); }
+
+.bg-input         { background-color: var(--setec-bg-input); }
+
+/* ── Border colors ── */
+
+.border-green   { border-color: var(--setec-green-500); }
+
+.border-cyan    { border-color: var(--setec-cyan-500); }
+
+.border-amber   { border-color: var(--setec-amber-500); }
+
+.border-purple  { border-color: var(--setec-purple-500); }
+
+.border-red     { border-color: var(--setec-red-500); }
+
+.border-neutral { border-color: var(--setec-neutral-500); }
+
+.border-subtle  { border-color: var(--setec-border-subtle); }
+
+.border-default { border-color: var(--setec-border); }
+
+/* Semantic borders */
+
+.border-primary   { border-color: var(--setec-color-primary); }
+
+.border-secondary { border-color: var(--setec-color-secondary); }
+
+.border-accent    { border-color: var(--setec-color-accent); }
+
+.border-error     { border-color: var(--setec-color-error); }
+
+.border-warning   { border-color: var(--setec-color-warning); }
+
+.border-success   { border-color: var(--setec-color-success); }
+
+/* Components */
+
+/* SETEC — Buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  padding: var(--setec-space-1) var(--setec-space-3);
+  font-family: var(--setec-font-default);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.1s, background-color 0.1s, border-color 0.1s, opacity 0.1s;
+}
+
+/* Primary — bright green fill */
+
+.btn-primary {
+  color: var(--setec-bg);
+  background-color: var(--setec-color-primary);
+  border-width: 1px;
+  border-color: var(--setec-color-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--setec-green-300);
+    border-color: var(--setec-green-300);
+  }
+
+/* Secondary — cyan fill */
+
+.btn-secondary {
+  color: var(--setec-bg);
+  background-color: var(--setec-color-secondary);
+  border-width: 1px;
+  border-color: var(--setec-color-secondary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--setec-cyan-300);
+    border-color: var(--setec-cyan-300);
+  }
+
+/* Danger — red fill */
+
+.btn-danger {
+  color: var(--setec-bg);
+  background-color: var(--setec-color-error);
+  border-width: 1px;
+  border-color: var(--setec-color-error);
+}
+
+.btn-danger:hover {
+    background-color: var(--setec-red-300);
+    border-color: var(--setec-red-300);
+  }
+
+/* Ghost — bracketed, no fill: [label] */
+
+.btn-ghost {
+  color: var(--setec-neutral-300);
+  background-color: transparent;
+  border-width: 0;
+  padding: 0;
+}
+
+.btn-ghost::before { content: "["; color: var(--setec-neutral-500); }
+
+.btn-ghost::after  { content: "]"; color: var(--setec-neutral-500); }
+
+.btn-ghost:hover {
+    color: var(--setec-color-text);
+  }
+
+/* Ghost variants with color */
+
+.btn-ghost-primary {
+  color: var(--setec-color-primary);
+  background-color: transparent;
+  border-width: 0;
+  padding: 0;
+}
+
+.btn-ghost-primary::before { content: "["; color: var(--setec-neutral-500); }
+
+.btn-ghost-primary::after  { content: "]"; color: var(--setec-neutral-500); }
+
+.btn-ghost-primary:hover { color: var(--setec-green-300); }
+
+.btn-ghost-accent {
+  color: var(--setec-color-accent);
+  background-color: transparent;
+  border-width: 0;
+  padding: 0;
+}
+
+.btn-ghost-accent::before { content: "["; color: var(--setec-neutral-500); }
+
+.btn-ghost-accent::after  { content: "]"; color: var(--setec-neutral-500); }
+
+.btn-ghost-accent:hover { color: var(--setec-amber-300); }
+
+/* Back button — pill-shaped with < prefix */
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--setec-space-2) var(--setec-space-4);
+  color: var(--setec-neutral-300);
+  background-color: var(--setec-bg-raised);
+  border-width: 1px;
+  border-radius: 9999px;
+}
+
+.btn-back::before {
+    content: "< ";
+    margin-right: var(--setec-space-1);
+    color: var(--setec-neutral-500);
+  }
+
+.btn-back:hover {
+    color: var(--setec-color-text);
+    background-color: var(--setec-bg-hover);
+  }
+
+/* Shared disabled state */
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* SETEC — Form elements */
+
+/* Field wrapper */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--setec-space-2);
+}
+
+/* Field section — icon + heading grouping (from insp form screen) */
+
+.field-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--setec-space-3);
+  padding: var(--setec-space-4) 0;
+  border-bottom-width: 1px;
+  border-color: var(--setec-border-subtle);
+}
+
+.field-section-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  font-weight: 700;
+  color: var(--setec-color-text);
+}
+
+/* Label — with / prefix matching insp */
+
+.field-label {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  color: var(--setec-color-text);
+  font-weight: 400;
+}
+
+.field-label::before {
+    content: "/";
+    color: var(--setec-color-accent);
+  }
+
+/* Input row — input + optional char counter */
+
+.field-input-row {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+}
+
+/* Text input */
+
+.field-input {
+  width: 100%;
+  padding: var(--setec-space-2) var(--setec-space-3);
+  background-color: var(--setec-bg-input);
+  color: var(--setec-color-text);
+  border-width: 1px;
+  border-color: var(--setec-border);
+  border-radius: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  transition: border-color 0.1s;
+}
+
+.field-input::-moz-placeholder {
+    color: var(--setec-neutral-700);
+  }
+
+.field-input::placeholder {
+    color: var(--setec-neutral-700);
+  }
+
+.field-input:hover {
+    border-color: var(--setec-border);
+  }
+
+/* Textarea */
+
+.field-textarea {
+  width: 100%;
+  padding: var(--setec-space-2) var(--setec-space-3);
+  background-color: var(--setec-bg-input);
+  color: var(--setec-color-text);
+  border-width: 1px;
+  border-color: var(--setec-border);
+  border-radius: 0;
+  resize: vertical;
+  min-height: 80px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.field-textarea::-moz-placeholder {
+    color: var(--setec-neutral-700);
+  }
+
+.field-textarea::placeholder {
+    color: var(--setec-neutral-700);
+  }
+
+/* Select */
+
+.field-select {
+  width: 100%;
+  padding: var(--setec-space-2) var(--setec-space-3);
+  background-color: var(--setec-bg-input);
+  color: var(--setec-color-text);
+  border-width: 1px;
+  border-color: var(--setec-border);
+  border-radius: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--setec-space-3) center;
+  padding-right: var(--setec-space-8);
+}
+
+/* Character counter */
+
+.field-counter {
+  flex-shrink: 0;
+  color: var(--setec-neutral-700);
+  white-space: nowrap;
+  font-size: 0.875rem;
+}
+
+.field-counter--near {
+  color: var(--setec-color-warning);
+}
+
+.field-counter--full {
+  color: var(--setec-color-error);
+}
+
+/* Helper text */
+
+.field-hint {
+  color: var(--setec-color-comment);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Inline label + control row (label left, control right) */
+
+.field-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--setec-space-4);
+}
+
+.field-row-label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--setec-space-1);
+  flex: 1;
+}
+
+.field-row-control {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  flex-shrink: 0;
+}
+
+/* SETEC — [off] / [on] text toggle
+   Usage: <span class="toggle" data-state="on">
+   Or with a real checkbox: <label class="toggle-label"><input type="checkbox" class="toggle-input"> */
+
+/* Display-only toggle via data attribute */
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  cursor: pointer;
+}
+
+.toggle-off,
+.toggle-on {
+  padding: 0;
+  color: var(--setec-neutral-700);
+}
+
+:is(.toggle-off,.toggle-on)::before { content: "["; }
+
+:is(.toggle-off,.toggle-on)::after  { content: "]"; }
+
+/* Active state via data attribute */
+
+.toggle[data-state="off"] .toggle-off,
+.toggle[data-state="on"]  .toggle-on {
+  color: var(--setec-color-accent);
+  font-weight: 700;
+}
+
+/* Checkbox-driven toggle */
+
+.toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  cursor: pointer;
+}
+
+/* The [off] [on] pair rendered via pseudo-elements on a wrapper */
+
+.toggle-pair {
+  display: inline-flex;
+  gap: var(--setec-space-2);
+}
+
+.toggle-pair-off::before { content: "["; color: var(--setec-neutral-500); }
+
+.toggle-pair-off::after  { content: "]"; color: var(--setec-neutral-500); }
+
+.toggle-pair-on::before  { content: "["; color: var(--setec-neutral-500); }
+
+.toggle-pair-on::after   { content: "]"; color: var(--setec-neutral-500); }
+
+.toggle-pair-off { color: var(--setec-neutral-700); }
+
+.toggle-pair-on  { color: var(--setec-neutral-700); }
+
+/* When checkbox is checked, [on] highlights */
+
+.toggle-input:checked ~ .toggle-label .toggle-pair-on,
+.toggle-input:checked + .toggle-pair-on {
+  color: var(--setec-color-accent);
+  font-weight: 700;
+}
+
+.toggle-input:not(:checked) ~ .toggle-label .toggle-pair-off,
+.toggle-input:not(:checked) + .toggle-pair-off {
+  color: var(--setec-color-accent);
+  font-weight: 700;
+}
+
+/* SETEC — [✓] / [ ] bracket-style checkbox
+   Usage: <label class="checkbox"><input type="checkbox"><span>Label text</span></label>
+   Or display-only: <span class="checkbox-display is-checked"> */
+
+.checkbox {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--setec-space-2);
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+/* Hide native checkbox */
+
+.checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The bracket indicator */
+
+.checkbox-indicator {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--setec-neutral-500);
+  white-space: nowrap;
+  width: 3ch;
+}
+
+.checkbox-indicator::before { content: "[ ]"; }
+
+.checkbox input[type="checkbox"]:checked ~ .checkbox-indicator::before,
+.checkbox.is-checked .checkbox-indicator::before {
+  content: "[✓]";
+  color: var(--setec-color-primary);
+}
+
+/* Label text — colored green when checked */
+
+.checkbox input[type="checkbox"]:checked ~ .checkbox-text,
+.checkbox.is-checked .checkbox-text {
+  color: var(--setec-color-primary);
+}
+
+/* Standalone display-only version */
+
+.checkbox-display {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+}
+
+.checkbox-display::before {
+  content: "[ ]";
+  color: var(--setec-neutral-500);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.checkbox-display.is-checked::before {
+  content: "[✓]";
+  color: var(--setec-color-primary);
+}
+
+/* SETEC — Day-of-week button row (M T W T F S S) */
+
+.day-picker {
+  display: flex;
+  gap: var(--setec-space-2);
+  flex-wrap: wrap;
+}
+
+.day-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  font-family: var(--setec-font-default);
+  font-size: 0.9rem;
+  font-weight: 700;
+  background-color: var(--setec-bg-input);
+  color: var(--setec-neutral-500);
+  border-width: 1px;
+  border-color: var(--setec-border);
+  cursor: pointer;
+  transition: background-color 0.1s, color 0.1s, border-color 0.1s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.day-btn:hover {
+    border-color: var(--setec-color-accent);
+    color: var(--setec-color-accent);
+  }
+
+/* Active — filled background */
+
+.day-btn.active,
+.day-btn[aria-pressed="true"],
+.day-btn.is-active {
+  background-color: var(--setec-color-accent);
+  border-color: var(--setec-color-accent);
+  color: var(--setec-bg);
+}
+
+/* Inactive (explicit) — more muted than default */
+
+.day-btn.inactive,
+.day-btn[aria-pressed="false"] {
+  opacity: 0.45;
+}
+
+/* SETEC — [-] N [+] stepper */
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+}
+
+.stepper-dec,
+.stepper-inc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--setec-neutral-500);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.1s;
+}
+
+:is(.stepper-dec,.stepper-inc)::before { content: "["; color: var(--setec-neutral-700); }
+
+:is(.stepper-dec,.stepper-inc)::after  { content: "]"; color: var(--setec-neutral-700); }
+
+:is(.stepper-dec,.stepper-inc):hover {
+    color: var(--setec-color-text);
+  }
+
+.stepper-dec::before { content: "[−"; }
+
+.stepper-dec::after  { content: "]"; }
+
+.stepper-inc::before { content: "[+"; }
+
+.stepper-inc::after  { content: "]"; }
+
+.stepper-value {
+  min-width: 2ch;
+  text-align: center;
+  color: var(--setec-color-text);
+  font-weight: 700;
+}
+
+/* SETEC — Color swatch picker row */
+
+.swatch-row {
+  display: flex;
+  gap: var(--setec-space-2);
+  flex-wrap: wrap;
+}
+
+.swatch {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  border-width: 2px;
+  border-color: transparent;
+  transition: border-color 0.1s, transform 0.1s;
+}
+
+.swatch:hover {
+    transform: scale(1.1);
+  }
+
+.swatch.active,
+.swatch[aria-selected="true"],
+.swatch.is-active {
+  border-color: var(--setec-color-text);
+}
+
+/* Preset swatch colors — map to SETEC palette */
+
+.swatch-red    { background-color: var(--setec-red-500); }
+
+.swatch-amber  { background-color: var(--setec-amber-500); }
+
+.swatch-yellow { background-color: oklch(calc(0.82 + 0.08 * var(--setec-c)) calc(0.18 * var(--setec-c)) 92); }
+
+.swatch-green  { background-color: var(--setec-green-500); }
+
+.swatch-cyan   { background-color: var(--setec-cyan-500); }
+
+.swatch-purple { background-color: var(--setec-purple-500); }
+
+/* SETEC — Tab navigation */
+
+/* Primary tabs */
+
+.nav-tabs {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  border-bottom-width: 1px;
+  border-color: var(--setec-border-subtle);
+  margin-bottom: var(--setec-space-4);
+}
+
+.nav-tab {
+  padding: var(--setec-space-2) var(--setec-space-6);
+  color: var(--setec-neutral-500);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: var(--setec-font-default);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.1s;
+}
+
+.nav-tab:hover {
+    color: var(--setec-neutral-300);
+  }
+
+/* Underline indicator */
+
+.nav-tab::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 0.1s;
+  }
+
+.nav-tab.active,
+.nav-tab[aria-selected="true"],
+.nav-tab.is-active {
+  color: var(--setec-color-primary);
+  font-weight: 700;
+}
+
+:is(.nav-tab.active,.nav-tab[aria-selected="true"],.nav-tab.is-active)::after {
+    background-color: var(--setec-color-primary);
+  }
+
+/* Secondary / nested tabs */
+
+.nav-tabs--secondary {
+  gap: 0;
+  border-color: transparent;
+  margin-bottom: var(--setec-space-3);
+}
+
+.nav-tabs--secondary .nav-tab {
+    padding: var(--setec-space-1) var(--setec-space-4);
+    font-size: 0.95rem;
+  }
+
+.nav-tabs--secondary .nav-tab.active,.nav-tabs--secondary .nav-tab[aria-selected="true"],.nav-tabs--secondary .nav-tab.is-active {
+    color: var(--setec-color-secondary);
+  }
+
+:is(.nav-tabs--secondary .nav-tab.active,.nav-tabs--secondary .nav-tab[aria-selected="true"],.nav-tabs--secondary .nav-tab.is-active)::after {
+      background-color: var(--setec-color-secondary);
+    }
+
+/* Tab color variants */
+
+.nav-tabs--amber .nav-tab.active,
+.nav-tabs--amber .nav-tab[aria-selected="true"] {
+  color: var(--setec-color-accent);
+}
+
+:is(.nav-tabs--amber .nav-tab.active,.nav-tabs--amber .nav-tab[aria-selected="true"])::after { background-color: var(--setec-color-accent); }
+
+/* SETEC — Pills, badges, period filters */
+
+/* Generic pill */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  color: var(--setec-neutral-500);
+  background: transparent;
+}
+
+.pill::before { content: "["; }
+
+.pill::after  { content: "]"; }
+
+.pill.active,
+.pill.is-active,
+.pill[aria-selected="true"] {
+  color: var(--setec-color-secondary);
+  font-weight: 700;
+}
+
+.pill-primary { color: var(--setec-color-primary); }
+
+.pill-primary::before { content: "["; }
+
+.pill-primary::after { content: "]"; }
+
+.pill-muted   { color: var(--setec-neutral-700); }
+
+.pill-muted::before { content: "["; }
+
+.pill-muted::after { content: "]"; }
+
+/* Period filter row (e.g. [14d] [30d] [60d]...) */
+
+.period-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--setec-space-2);
+}
+
+.period-filter {
+  display: inline-flex;
+  align-items: center;
+  color: var(--setec-neutral-500);
+  cursor: pointer;
+  transition: color 0.1s;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  padding: 0;
+}
+
+.period-filter::before { content: "["; }
+
+.period-filter::after  { content: "]"; }
+
+.period-filter:hover {
+    color: var(--setec-neutral-300);
+  }
+
+.period-filter.active,
+.period-filter.is-active,
+.period-filter[aria-selected="true"] {
+  color: var(--setec-color-secondary);
+  font-weight: 700;
+}
+
+/* Badge — small count indicator (e.g. streak count, item count) */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4em;
+  padding: 0 0.3em;
+  color: var(--setec-bg);
+  background-color: var(--setec-neutral-700);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 9999px;
+}
+
+.badge-primary { background-color: var(--setec-color-primary);   color: var(--setec-bg); }
+
+.badge-accent  { background-color: var(--setec-color-accent);    color: var(--setec-bg); }
+
+.badge-muted   { background-color: var(--setec-neutral-700);     color: var(--setec-neutral-300); }
+
+.badge-error   { background-color: var(--setec-color-error);     color: var(--setec-bg); }
+
+/* Section count badge — e.g. "[3/5]" */
+
+.section-count {
+  color: var(--setec-neutral-500);
+}
+
+.section-count::before { content: "["; }
+
+.section-count::after  { content: "]"; }
+
+/* SETEC — Panel / card container */
+
+.panel {
+  background-color: var(--setec-bg);
+  padding: var(--setec-space-4) 0;
+}
+
+.panel-raised {
+  background-color: var(--setec-bg-raised);
+  padding: var(--setec-space-4);
+}
+
+/* Horizontal divider */
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--setec-border-subtle);
+  border: 0;
+  margin: var(--setec-space-4) 0;
+}
+
+.divider-subtle {
+  background-color: var(--setec-border-subtle);
+  opacity: 0.5;
+}
+
+/* Navigation arrow buttons < > */
+
+.nav-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--setec-space-1) var(--setec-space-2);
+  color: var(--setec-neutral-500);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--setec-font-default);
+  font-size: 1rem;
+  transition: color 0.1s;
+}
+
+.nav-arrow:hover {
+    color: var(--setec-neutral-300);
+  }
+
+.nav-arrow--prev::before { content: "<"; }
+
+.nav-arrow--next::before { content: ">"; }
+
+.nav-arrow.disabled,
+.nav-arrow[disabled] {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+/* SETEC — Terminal / shell chrome components */
+
+/* ── Prompt line: user@host $ command ── */
+
+.prompt {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0;
+  line-height: 1.5;
+  margin-bottom: var(--setec-space-1);
+}
+
+.prompt-user {
+  color: var(--setec-color-secondary);
+  font-weight: 400;
+}
+
+.prompt-at {
+  color: var(--setec-neutral-500);
+}
+
+.prompt-host {
+  color: var(--setec-color-secondary);
+}
+
+.prompt-dollar {
+  color: var(--setec-color-primary);
+  margin: 0 0.4em;
+}
+
+.prompt-cmd {
+  color: var(--setec-color-text);
+  font-weight: 400;
+}
+
+/* Bracket role tag: user[pro] */
+
+.prompt-role {
+  color: var(--setec-neutral-500);
+}
+
+.prompt-role::before { content: "["; }
+
+.prompt-role::after  { content: "]"; }
+
+/* ── Comment text: // description ── */
+
+.comment {
+  color: var(--setec-color-comment);
+  line-height: 1.4;
+}
+
+/* ── Section header with collapse indicator ── */
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--setec-space-2);
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  padding: var(--setec-space-3) 0;
+  border-top-width: 1px;
+  border-color: var(--setec-border-subtle);
+}
+
+.section-header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  font-weight: 700;
+  color: var(--setec-color-primary);
+}
+
+/* Amber variant */
+
+.section-header--amber .section-header-left { color: var(--setec-color-accent); }
+
+.section-header--cyan  .section-header-left { color: var(--setec-color-secondary); }
+
+.section-header--purple .section-header-left { color: var(--setec-purple-500); }
+
+.section-header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  color: var(--setec-neutral-500);
+}
+
+.section-header-count::before { content: "["; }
+
+.section-header-count::after  { content: "]"; }
+
+/* Collapse chevron */
+
+.section-header-chevron::after {
+  content: "▼";
+  display: inline-block;
+  font-size: 0.7em;
+  transition: transform 0.15s;
+  margin-left: var(--setec-space-1);
+}
+
+.section-header.collapsed .section-header-chevron::after {
+  transform: rotate(-90deg);
+}
+
+/* Section body — hidden when collapsed */
+
+.section-body {
+  overflow: hidden;
+}
+
+.section-header.collapsed + .section-body {
+  display: none;
+}
+
+/* SETEC — Progress bars and segmented meters */
+
+/* ── Progress bar ── */
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-3);
+}
+
+.progress-bar-track {
+  flex: 1;
+  height: 1.1rem;
+  background: var(--setec-checkered);
+  background-color: var(--setec-bg-input);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--progress, 0%);
+  background-color: var(--setec-color-accent);
+  transition: width 0.3s ease;
+}
+
+.progress-bar-label {
+  flex-shrink: 0;
+  color: var(--setec-color-text);
+  min-width: 3ch;
+  text-align: right;
+}
+
+/* Color variants */
+
+.progress-bar--primary .progress-bar-fill   { background-color: var(--setec-color-primary); }
+
+.progress-bar--secondary .progress-bar-fill { background-color: var(--setec-color-secondary); }
+
+.progress-bar--accent .progress-bar-fill    { background-color: var(--setec-color-accent); }
+
+.progress-bar--error .progress-bar-fill     { background-color: var(--setec-color-error); }
+
+/* ── Segmented meter ── [■|■|□|□|□] style
+   Usage: <div class="meter" style="--meter-total:6; --meter-filled:3">
+   Or manually apply .meter-seg--filled / .meter-seg--partial / .meter-seg--empty to children */
+
+.meter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--setec-space-1);
+}
+
+.meter-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.meter-bracket-open {
+  color: var(--setec-neutral-500);
+  margin-right: 1px;
+}
+
+.meter-bracket-open::before { content: "["; }
+
+.meter-bracket-close {
+  color: var(--setec-neutral-500);
+  margin-left: 1px;
+}
+
+.meter-bracket-close::before { content: "]"; }
+
+.meter-segments {
+  display: flex;
+  gap: 2px;
+}
+
+.meter-seg {
+  width: 2rem;
+  height: 1.1rem;
+}
+
+.meter-seg--filled {
+  background-color: var(--setec-neutral-300);
+}
+
+.meter-seg--filled-primary  { background-color: var(--setec-color-primary); }
+
+.meter-seg--filled-accent   { background-color: var(--setec-color-accent); }
+
+.meter-seg--filled-secondary { background-color: var(--setec-color-secondary); }
+
+.meter-seg--partial {
+  background-color: var(--setec-color-accent);
+}
+
+.meter-seg--empty {
+  background: var(--setec-checkered);
+  background-color: var(--setec-bg-input);
+}
+
+.meter-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--setec-space-4);
+}
+
+.meter-count {
+  color: var(--setec-neutral-300);
+  font-size: 0.95rem;
+}
+
+.meter-tier {
+  color: var(--setec-neutral-500);
+  font-size: 0.9rem;
+}
+
+.meter-xp {
+  color: var(--setec-color-accent);
+}
+
+/* SETEC — Week calendar grid */
+
+.calendar-week {
+  width: 100%;
+}
+
+/* Navigation row */
+
+.cal-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--setec-space-2);
+}
+
+/* Day columns */
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--setec-space-1);
+}
+
+/* Day header (Mon, Tue, ...) */
+
+.cal-day-header {
+  text-align: center;
+  color: var(--setec-neutral-500);
+  font-size: 0.85rem;
+  padding-bottom: var(--setec-space-1);
+}
+
+/* Individual day column */
+
+.cal-day-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--setec-space-1);
+}
+
+/* Date number cell */
+
+.cal-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 2rem;
+  height: 2rem;
+  color: var(--setec-neutral-500);
+  font-size: 0.95rem;
+  position: relative;
+}
+
+/* Today — bright bg box with * prefix */
+
+.cal-day--today {
+  background-color: var(--setec-color-primary);
+  color: var(--setec-bg);
+  font-weight: 700;
+}
+
+/* Active (has data) */
+
+.cal-day--active {
+  color: var(--setec-color-text);
+}
+
+/* Future / no data */
+
+.cal-day--future {
+  color: var(--setec-neutral-700);
+}
+
+/* Activity swatch — colored block below each date */
+
+.cal-activity {
+  width: 100%;
+  height: 0.6rem;
+  background-color: var(--setec-color-primary);
+}
+
+.cal-activity--partial {
+  background: var(--setec-checkered);
+  background-color: var(--setec-color-accent);
+}
+
+/* Override fill color with variant classes */
+
+.cal-activity--amber    { background-color: var(--setec-color-accent); }
+
+.cal-activity--cyan     { background-color: var(--setec-color-secondary); }
+
+.cal-activity--green    { background-color: var(--setec-color-primary); }
+
+.cal-activity--empty {
+  background: var(--setec-checkered);
+  background-color: var(--setec-bg-input);
+}
+
+/* SETEC — Contribution heatmap grid */
+
+.heatmap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--setec-space-2);
+}
+
+/* Month labels row */
+
+.heatmap-months {
+  display: flex;
+  gap: var(--setec-space-1);
+  margin-left: 1.6rem; /* offset for row labels */
+  color: var(--setec-neutral-500);
+  font-size: 0.8rem;
+}
+
+.heatmap-month-label {
+  flex: 1;
+}
+
+/* Grid rows */
+
+.heatmap-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.heatmap-row {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* Row label (m, w, f, s...) */
+
+.heatmap-row-label {
+  width: 1.4rem;
+  flex-shrink: 0;
+  color: var(--setec-neutral-700);
+  font-size: 0.75rem;
+}
+
+/* Individual cell */
+
+.heatmap-cell {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* Intensity levels — scale from near-bg to full primary color */
+
+.heatmap-cell.intensity-0 {
+  background: var(--setec-checkered);
+  background-color: var(--setec-bg-input);
+}
+
+.heatmap-cell.intensity-1 {
+  background-color: var(--setec-green-900);
+}
+
+.heatmap-cell.intensity-2 {
+  background-color: var(--setec-green-700);
+}
+
+.heatmap-cell.intensity-3 {
+  background-color: var(--setec-green-500);
+}
+
+.heatmap-cell.intensity-4 {
+  background-color: var(--setec-green-300);
+}
+
+/* Heatmap legend */
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  color: var(--setec-color-comment);
+  font-size: 0.8rem;
+  margin-left: 1.6rem;
+}
+
+.heatmap-legend-cells {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.heatmap-legend-cell {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+/* SETEC — Horizontal bar chart rows */
+
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--setec-space-2);
+}
+
+.bar-chart-row {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-3);
+}
+
+.bar-chart-label {
+  flex-shrink: 0;
+  width: 2rem;
+  color: var(--setec-neutral-500);
+  font-size: 0.9rem;
+}
+
+.bar-chart-track {
+  flex: 1;
+  height: 0.9rem;
+  background: var(--setec-checkered);
+  background-color: var(--setec-bg-input);
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-chart-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--bar-width, 0%);
+  background-color: var(--setec-color-primary);
+}
+
+.bar-chart-value {
+  flex-shrink: 0;
+  min-width: 3ch;
+  text-align: right;
+  color: var(--setec-color-text);
+  font-size: 0.9rem;
+}
+
+/* Color variants */
+
+.bar-chart--secondary .bar-chart-fill { background-color: var(--setec-color-secondary); }
+
+.bar-chart--accent    .bar-chart-fill { background-color: var(--setec-color-accent); }
+
+/* SETEC — Stat rows and sections */
+
+/* Stat section: icon + heading grouping */
+
+.stat-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--setec-space-2);
+  padding: var(--setec-space-3) 0;
+  border-bottom-width: 1px;
+  border-color: var(--setec-border-subtle);
+}
+
+.stat-section-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  font-weight: 700;
+  color: var(--setec-color-text);
+}
+
+/* Stat row: label + value */
+
+.stat-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--setec-space-2);
+}
+
+.stat-row-label {
+  color: var(--setec-neutral-500);
+}
+
+.stat-row-label::after {
+  content: ":";
+}
+
+/* Highlighted value */
+
+.stat-value {
+  color: var(--setec-color-primary);
+  font-weight: 400;
+}
+
+.stat-value--accent    { color: var(--setec-color-accent); }
+
+.stat-value--secondary { color: var(--setec-color-secondary); }
+
+.stat-value--muted     { color: var(--setec-neutral-500); }
+
+.stat-value--error     { color: var(--setec-color-error); }
+
+/* Trend indicators */
+
+.trend-up {
+  color: var(--setec-color-success);
+}
+
+.trend-up::before { content: "↑"; margin-right: 0.1em; }
+
+.trend-down {
+  color: var(--setec-color-error);
+}
+
+.trend-down::before { content: "↓"; margin-right: 0.1em; }
+
+/* SETEC — Mobile-style status bar */
+
+.status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--setec-space-1) var(--setec-space-4);
+  color: var(--setec-color-text);
+  font-size: 0.9rem;
+}
+
+.status-bar-time {
+  font-weight: 700;
+}
+
+.status-bar-icons {
+  display: flex;
+  align-items: center;
+  gap: var(--setec-space-2);
+  color: var(--setec-color-text);
+}
+
+/* Utilities */
+
+/* SETEC — Spacing utilities (4px base) */
+
+/* Margin */
+
+.m-0  { margin: 0; }
+
+.m-1  { margin: var(--setec-space-1); }
+
+.m-2  { margin: var(--setec-space-2); }
+
+.m-3  { margin: var(--setec-space-3); }
+
+.m-4  { margin: var(--setec-space-4); }
+
+.m-6  { margin: var(--setec-space-6); }
+
+.m-8  { margin: var(--setec-space-8); }
+
+.mt-0 { margin-top: 0; }
+
+.mt-1 { margin-top: var(--setec-space-1); }
+
+.mt-2 { margin-top: var(--setec-space-2); }
+
+.mt-3 { margin-top: var(--setec-space-3); }
+
+.mt-4 { margin-top: var(--setec-space-4); }
+
+.mt-6 { margin-top: var(--setec-space-6); }
+
+.mt-8 { margin-top: var(--setec-space-8); }
+
+.mb-0 { margin-bottom: 0; }
+
+.mb-1 { margin-bottom: var(--setec-space-1); }
+
+.mb-2 { margin-bottom: var(--setec-space-2); }
+
+.mb-3 { margin-bottom: var(--setec-space-3); }
+
+.mb-4 { margin-bottom: var(--setec-space-4); }
+
+.mb-6 { margin-bottom: var(--setec-space-6); }
+
+.mb-8 { margin-bottom: var(--setec-space-8); }
+
+.ml-0 { margin-left: 0; }
+
+.ml-1 { margin-left: var(--setec-space-1); }
+
+.ml-2 { margin-left: var(--setec-space-2); }
+
+.ml-3 { margin-left: var(--setec-space-3); }
+
+.ml-4 { margin-left: var(--setec-space-4); }
+
+.ml-6 { margin-left: var(--setec-space-6); }
+
+.ml-8 { margin-left: var(--setec-space-8); }
+
+.mr-0 { margin-right: 0; }
+
+.mr-1 { margin-right: var(--setec-space-1); }
+
+.mr-2 { margin-right: var(--setec-space-2); }
+
+.mr-3 { margin-right: var(--setec-space-3); }
+
+.mr-4 { margin-right: var(--setec-space-4); }
+
+.mr-6 { margin-right: var(--setec-space-6); }
+
+.mr-8 { margin-right: var(--setec-space-8); }
+
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+/* Padding */
+
+.p-0  { padding: 0; }
+
+.p-1  { padding: var(--setec-space-1); }
+
+.p-2  { padding: var(--setec-space-2); }
+
+.p-3  { padding: var(--setec-space-3); }
+
+.p-4  { padding: var(--setec-space-4); }
+
+.p-6  { padding: var(--setec-space-6); }
+
+.p-8  { padding: var(--setec-space-8); }
+
+.pt-0 { padding-top: 0; }
+
+.pt-1 { padding-top: var(--setec-space-1); }
+
+.pt-2 { padding-top: var(--setec-space-2); }
+
+.pt-3 { padding-top: var(--setec-space-3); }
+
+.pt-4 { padding-top: var(--setec-space-4); }
+
+.pt-6 { padding-top: var(--setec-space-6); }
+
+.pt-8 { padding-top: var(--setec-space-8); }
+
+.pb-0 { padding-bottom: 0; }
+
+.pb-1 { padding-bottom: var(--setec-space-1); }
+
+.pb-2 { padding-bottom: var(--setec-space-2); }
+
+.pb-3 { padding-bottom: var(--setec-space-3); }
+
+.pb-4 { padding-bottom: var(--setec-space-4); }
+
+.pb-6 { padding-bottom: var(--setec-space-6); }
+
+.pb-8 { padding-bottom: var(--setec-space-8); }
+
+.pl-0 { padding-left: 0; }
+
+.pl-1 { padding-left: var(--setec-space-1); }
+
+.pl-2 { padding-left: var(--setec-space-2); }
+
+.pl-3 { padding-left: var(--setec-space-3); }
+
+.pl-4 { padding-left: var(--setec-space-4); }
+
+.pl-6 { padding-left: var(--setec-space-6); }
+
+.pl-8 { padding-left: var(--setec-space-8); }
+
+.pr-0 { padding-right: 0; }
+
+.pr-1 { padding-right: var(--setec-space-1); }
+
+.pr-2 { padding-right: var(--setec-space-2); }
+
+.pr-3 { padding-right: var(--setec-space-3); }
+
+.pr-4 { padding-right: var(--setec-space-4); }
+
+.pr-6 { padding-right: var(--setec-space-6); }
+
+.pr-8 { padding-right: var(--setec-space-8); }
+
+/* Gap */
+
+.gap-1 { gap: var(--setec-space-1); }
+
+.gap-2 { gap: var(--setec-space-2); }
+
+.gap-3 { gap: var(--setec-space-3); }
+
+.gap-4 { gap: var(--setec-space-4); }
+
+.gap-6 { gap: var(--setec-space-6); }
+
+.gap-8 { gap: var(--setec-space-8); }
+
+/* SETEC — Layout utilities */
+
+/* Display */
+
+.flex      { display: flex; }
+
+.flex-col  { display: flex; flex-direction: column; }
+
+.grid      { display: grid; }
+
+.block     { display: block; }
+
+.inline    { display: inline; }
+
+.inline-flex { display: inline-flex; }
+
+.hidden    { display: none; }
+
+/* Flex helpers */
+
+.items-start   { align-items: flex-start; }
+
+.items-center  { align-items: center; }
+
+.items-end     { align-items: flex-end; }
+
+.items-baseline { align-items: baseline; }
+
+.justify-start   { justify-content: flex-start; }
+
+.justify-center  { justify-content: center; }
+
+.justify-end     { justify-content: flex-end; }
+
+.justify-between { justify-content: space-between; }
+
+.flex-wrap     { flex-wrap: wrap; }
+
+.flex-nowrap   { flex-wrap: nowrap; }
+
+.grow          { flex-grow: 1; }
+
+.shrink-0      { flex-shrink: 0; }
+
+.flex-1        { flex: 1; }
+
+/* Grid */
+
+.grid-cols-7 { grid-template-columns: repeat(7, 1fr); }
+
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Width / height */
+
+.w-full   { width: 100%; }
+
+.h-full   { height: 100%; }
+
+.min-w-0  { min-width: 0; }
+
+/* Text alignment */
+
+.text-left   { text-align: left; }
+
+.text-center { text-align: center; }
+
+.text-right  { text-align: right; }
+
+/* Overflow */
+
+.overflow-hidden { overflow: hidden; }
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Position */
+
+.relative { position: relative; }
+
+.absolute { position: absolute; }
+
+/* SETEC — Interactive states */
+
+/* ── Focus ── */
+
+*:focus-visible {
+  outline: 2px solid var(--setec-focus-ring);
+  outline-offset: 2px;
+}
+
+/* ── Semantic state modifiers ── */
+
+/* Error */
+
+.is-error .field-input,
+.is-error .field-textarea,
+.is-error .field-select,
+.is-error.field-input,
+.is-error.field-textarea,
+.is-error.field-select {
+  border-color: var(--setec-color-error);
+}
+
+.is-error .field-label,
+.is-error .field-hint {
+  color: var(--setec-color-error);
+}
+
+/* Warning */
+
+.is-warning .field-input,
+.is-warning .field-textarea,
+.is-warning .field-select,
+.is-warning.field-input,
+.is-warning.field-textarea,
+.is-warning.field-select {
+  border-color: var(--setec-color-warning);
+}
+
+.is-warning .field-label,
+.is-warning .field-hint {
+  color: var(--setec-color-warning);
+}
+
+/* Success */
+
+.is-success .field-input,
+.is-success .field-textarea,
+.is-success .field-select,
+.is-success.field-input,
+.is-success.field-textarea,
+.is-success.field-select {
+  border-color: var(--setec-color-success);
+}
+
+.is-success .field-label,
+.is-success .field-hint {
+  color: var(--setec-color-success);
+}
+
+/* Disabled */
+
+.is-disabled,
+[disabled],
+[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
