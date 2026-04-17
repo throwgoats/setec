@@ -1491,7 +1491,15 @@ body {
 /* Section body — hidden when collapsed */
 
 .section-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.5rem 0 0.75rem 0.5rem;
   overflow: hidden;
+}
+
+.section-header.collapsed + .section-body {
+  display: none;
 }
 
 .section-header.collapsed + .section-body {
