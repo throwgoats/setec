@@ -100,7 +100,7 @@ A `.light` class is stubbed on `:root` / `body` and overrides surface tokens. Co
 
 ## Demo
 
-Open `demo/index.html` directly in a browser. It includes a live contrast slider so you can scrub from earth tones to full neon in real time.
+**[throwgoats.github.io/setec](https://throwgoats.github.io/setec/)** — live component reference with a contrast slider to scrub from earth tones to full neon in real time.
 
 ---
 
